@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2000
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalaryForWorker", "SalaryForWorker\SalaryForWorker.csproj", "{BA4B9BA4-5303-49C9-BA0F-A66C03590F62}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Salary", "..\Salary\Salary\Salary.csproj", "{025B25C4-B174-4ACF-B1AF-706CFB23F414}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BA4B9BA4-5303-49C9-BA0F-A66C03590F62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA4B9BA4-5303-49C9-BA0F-A66C03590F62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA4B9BA4-5303-49C9-BA0F-A66C03590F62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA4B9BA4-5303-49C9-BA0F-A66C03590F62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{025B25C4-B174-4ACF-B1AF-706CFB23F414}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{025B25C4-B174-4ACF-B1AF-706CFB23F414}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{025B25C4-B174-4ACF-B1AF-706CFB23F414}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{025B25C4-B174-4ACF-B1AF-706CFB23F414}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A57148F9-3C2B-45FD-88EF-A9857FAE19BE}
+	EndGlobalSection
+EndGlobal
