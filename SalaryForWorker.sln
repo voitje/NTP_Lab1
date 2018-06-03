@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalaryForWorker", "SalaryFo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Salary", "..\Salary\Salary\Salary.csproj", "{025B25C4-B174-4ACF-B1AF-706CFB23F414}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SalaryForWorkerLibrary", "SalaryForWorkerLibrary", "{ED9FF7BD-D1A6-40EB-A93D-24383FDA5026}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,6 +26,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{025B25C4-B174-4ACF-B1AF-706CFB23F414} = {ED9FF7BD-D1A6-40EB-A93D-24383FDA5026}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A57148F9-3C2B-45FD-88EF-A9857FAE19BE}
