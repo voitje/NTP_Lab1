@@ -34,7 +34,7 @@
   <ItemGroup>
     <Reference Include="Salary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\Salary.dll</HintPath>
+      <HintPath>..\..\Salary\Salary\bin\Debug\Salary.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

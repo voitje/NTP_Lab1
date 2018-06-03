@@ -15,8 +15,6 @@ namespace SalaryForWorker
         /// </summary>
         static void Main(string[] args)
         {
-            string name = "Ivan";
-            string surname = "Ivanov";
             bool key = true;
             while (key)
             {
@@ -48,7 +46,7 @@ namespace SalaryForWorker
                                     "Введите время работы в месяц (в часах)");
                                 workTime = int.Parse(Console.ReadLine());
                                 EmployeeRate EmployeeRate =
-                                    new EmployeeRate(name, surname, workTime, salary, rate);
+                                    new EmployeeRate(workTime, salary, rate);
                                 Console.WriteLine("Зарплата за " + workTime +
                                     " часов работы " + "c окладом " + salary + " и ставкой "
                                     + rate + " с учетом налога на доходы физических лиц:");
@@ -68,7 +66,7 @@ namespace SalaryForWorker
                                     "Введите время работы в месяц (в часах)");
                                 workTime = int.Parse(Console.ReadLine());
                                 EmployeeHourly EmployeeHourly =
-                                    new EmployeeHourly(name, surname, workTime, costPerHour);
+                                    new EmployeeHourly(workTime, costPerHour);
                                 Console.WriteLine("Зарплата за " + workTime +
                                     " часов работы " + "c " + costPerHour + " за час работы:");
                                 Console.WriteLine(EmployeeHourly.GetSalary());
