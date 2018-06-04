@@ -10,8 +10,9 @@ namespace Salary
     /// Зарплата по ставке
     /// </summary>
     public class EmployeeRate : Employee
-    {
+    { //TODO: XML
         private int _salary;
+ //TODO: XML
         public int Salary
         {
             get
@@ -31,6 +32,7 @@ namespace Salary
         /// Ставка (норма работы в месяц)
         /// </summary>
         private int _rate;
+ //TODO: XML
         public int Rate
         {
             get
@@ -49,11 +51,14 @@ namespace Salary
         /// <summary>
         /// Подсчет зарплаты по ставке
         /// </summary>
+        /// //TODO: Лучше в свойство
         public override int GetSalary()
         {
+            //TODO: Можно совместить с return
             int salary = _salary / _rate * WorkTime;
             return salary;
         }
+ //TODO: XML
         public EmployeeRate(int workTime, int salary, int rate)
             : base(workTime)
         {

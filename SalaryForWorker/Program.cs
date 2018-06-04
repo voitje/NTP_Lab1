@@ -1,4 +1,5 @@
 ﻿using System;
+//TODO: Не компилится из-за неправильно подключенного проекта
 using Salary;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 
 namespace SalaryForWorker
-{
+{//TODO: Косяк c RSDN
     class Program
     {
         /// <summary>
@@ -15,6 +16,7 @@ namespace SalaryForWorker
         /// </summary>
         static void Main(string[] args)
         {
+            //TODO: Название
             bool key = true;
             while (key)
             {
@@ -29,10 +31,13 @@ namespace SalaryForWorker
                 Console.WriteLine("\n\n\nChoose action (1-2):\n>");
                 try
                 {
+                    //TODO: Сейчас после ошибки во вводе пользователь должен начинать ввод заново - это не правильно - он мог 
+                    //TODO: опечататься. Необходимо обрабатывать пользовательский ввод для каждого случая ввода. И просить ввести
+                    //TODO: заново каждый раз на том же параметре
                     switch (Convert.ToInt32(Console.ReadLine()))
                     {
                         case 1:
-                            {
+                            {//TODO: Ниже много косяков c RSDN
                                 int workTime;
                                 int salary;
                                 int rate;

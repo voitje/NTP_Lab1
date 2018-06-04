@@ -15,6 +15,8 @@ namespace Salary
         /// Оплата за час
         /// </summary>
         private int _costPerHour;
+
+ //TODO: XML
         public int CostPerHour
         {
             get
@@ -30,6 +32,7 @@ namespace Salary
                 _costPerHour = value;
             }
         }
+
         /// <summary>
         /// Подсчет зарплаты
         /// </summary>
@@ -39,6 +42,8 @@ namespace Salary
             int salary = WorkTime / hoursPerDay * CostPerHour;
             return salary;
         }
+
+ //TODO: XML
         public EmployeeHourly(int workTime, int costPerHour)
             : base(workTime)
         {
