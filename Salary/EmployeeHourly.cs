@@ -16,7 +16,10 @@ namespace Salary
         /// </summary>
         private int _costPerHour;
 
- //TODO: XML
+        //TODO: XML \ DONE
+        /// <summary>
+        /// Оплата за час
+        /// </summary>
         public int CostPerHour
         {
             get
@@ -36,14 +39,19 @@ namespace Salary
         /// <summary>
         /// Подсчет зарплаты
         /// </summary>
-        public override int GetSalary()
+        public override int GetSalary
         {
-            const int hoursPerDay = 24;
-            int salary = WorkTime / hoursPerDay * CostPerHour;
-            return salary;
+            get
+            {
+                const int hoursPerDay = 24;
+                return WorkTime / hoursPerDay * CostPerHour;
+            }
         }
 
- //TODO: XML
+        //TODO: XML \ DONE
+        /// <summary>
+        /// Иницализация оплаты в час
+        /// </summary>
         public EmployeeHourly(int workTime, int costPerHour)
             : base(workTime)
         {
