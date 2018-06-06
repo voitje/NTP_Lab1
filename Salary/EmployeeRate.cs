@@ -10,12 +10,12 @@ namespace Salary
     /// Зарплата по ставке
     /// </summary>
     public class EmployeeRate : Employee
-    { //TODO: XML \ DONE
+    { 
         /// <summary>
         /// Оклад
         /// </summary>
         private int _salary;
-        //TODO: XML \ DONE
+
         /// <summary>
         /// Оклад
         /// </summary>
@@ -38,7 +38,7 @@ namespace Salary
         /// Ставка (норма работы в месяц)
         /// </summary>
         private int _rate;
-        //TODO: XML \ DONE
+
         /// <summary>
         /// Ставка (норма работы в месяц)
         /// </summary>
@@ -60,10 +60,8 @@ namespace Salary
         /// <summary>
         /// Подсчет зарплаты по ставке
         /// </summary>
-        /// //TODO: Лучше в свойство \ DONE
         public override int GetSalary => _salary / _rate * WorkTime;
 
-        //TODO: XML \ DONE
         /// <summary>
         /// Иницализация ставки (норма работы в месяц) и оклада
         /// </summary>

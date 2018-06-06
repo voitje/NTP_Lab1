@@ -1,5 +1,7 @@
 ﻿using System;
 //TODO: Не компилится из-за неправильно подключенного проекта
+//TODO: Скорее всего вы его подключаете как сборку .dll а саму сборку не добавили в репозиторий.
+//TODO: Выполните подключение не бинарником, а прямо проектом
 using Salary;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +10,7 @@ using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 
 namespace SalaryForWorker
-{//TODO: Косяк c RSDN \ internal надо было указать?
+{
     internal class Program
     {
         /// <summary>
@@ -16,7 +18,6 @@ namespace SalaryForWorker
         /// </summary>
         static void Main(string[] args)
         {
-            //TODO: Название \ DONE
             while (true)
             {
                 Console.Clear();
@@ -36,12 +37,11 @@ namespace SalaryForWorker
                     {
                         //TODO: Сейчас после ошибки во вводе пользователь должен начинать ввод заново - это не правильно - он мог 
                         //TODO: опечататься. Необходимо обрабатывать пользовательский ввод для каждого случая ввода. И просить ввести
-                        //TODO: заново каждый раз на том же параметре \ DONE
+                        //TODO: заново каждый раз на том же параметре 
                         switch (Convert.ToInt32(Console.ReadLine()))
                         {
                             case 1:
                             {
-                                //TODO: Ниже много косяков c RSDN \ DONE
                                 Console.WriteLine(
                                     "Введите норму часов в месяц");
                                 int rate = int.Parse(Console.ReadLine());
