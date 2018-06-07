@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -57,11 +58,19 @@ namespace Salary
                 _rate = value;
             }
         }
+
         /// <summary>
         /// Подсчет зарплаты по ставке
         /// </summary>
         /// //TODO: Лучше в свойство \ DONE
-        public override int GetSalary => _salary / _rate * WorkTime;
+        public override int GetSalary
+        {
+            get
+            {
+                return _salary / _rate * WorkTime;
+            }
+            set { }
+        }
 
         //TODO: XML \ DONE
         /// <summary>
@@ -72,6 +81,11 @@ namespace Salary
         {
             _salary = salary;
             _rate = rate;
+        }
+
+        public override string Type
+        {
+            get { return "По ставке и окладу"; }
         }
     }
 }

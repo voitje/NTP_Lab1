@@ -46,6 +46,7 @@ namespace Salary
                 const int hoursPerDay = 24;
                 return WorkTime / hoursPerDay * CostPerHour;
             }
+            set { }
         }
 
         //TODO: XML \ DONE
@@ -56,6 +57,11 @@ namespace Salary
             : base(workTime)
         {
             CostPerHour = costPerHour;
+        }
+
+        public override string Type
+        {
+            get { return "Почасовая"; }
         }
     }
 }

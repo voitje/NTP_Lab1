@@ -10,7 +10,7 @@ namespace Salary
     /// <summary>
     /// Зарплата
     /// </summary>
-    abstract public class Employee
+    public abstract class Employee
     {
         /// <summary>
         /// Время работы
@@ -41,7 +41,7 @@ namespace Salary
         /// Подсчет зарплаты
         /// </summary>
         //TODO: Дложно быть свойством \ DONE
-        public abstract int GetSalary { get; }
+        public abstract int GetSalary { get; set; }
         //TODO: XML \ DONE
         //TODO: Можно заменить модификатор доступа на protected \ DONE
         /// <summary>
@@ -51,5 +51,7 @@ namespace Salary
         {
             WorkTime = workTime;
         }
+
+        public abstract string Type { get; }
     }
 }
