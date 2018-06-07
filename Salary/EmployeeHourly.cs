@@ -16,7 +16,6 @@ namespace Salary
         /// </summary>
         private int _costPerHour;
 
-        //TODO: XML \ DONE
         /// <summary>
         /// Оплата за час
         /// </summary>
@@ -49,7 +48,6 @@ namespace Salary
             set { }
         }
 
-        //TODO: XML \ DONE
         /// <summary>
         /// Иницализация оплаты в час
         /// </summary>

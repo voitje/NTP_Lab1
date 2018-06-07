@@ -5,8 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Salary
-{//TODO: Косяк c RSDN \ DONE (если я понял что abstract и public местами поменять)
- //TODO: XML \ DONE
+{
+    //TODO: Косяк c RSDN \ DONE (если я понял что abstract и public местами поменять) \ Не верно, верните обратно
+    //TODO: Почитайте - как в RSDN должны называться базовые классы
     /// <summary>
     /// Зарплата
     /// </summary>
@@ -17,7 +18,6 @@ namespace Salary
         /// </summary>
         private int _workTime;
 
-        //TODO: XML \ DONE
         /// <summary>
         /// Время работы
         /// </summary>
@@ -36,14 +36,15 @@ namespace Salary
                 _workTime = value;
             }
         }
-        //TODO: XML \ DONE
+
         /// <summary>
         /// Подсчет зарплаты
         /// </summary>
-        //TODO: Дложно быть свойством \ DONE
+
         public abstract int GetSalary { get; set; }
         //TODO: XML \ DONE
         //TODO: Можно заменить модификатор доступа на protected \ DONE
+
         /// <summary>
         /// Иницализация рабочего времени
         /// </summary>

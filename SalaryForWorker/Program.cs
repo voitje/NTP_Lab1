@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 
 namespace SalaryForWorker
-{//TODO: Косяк c RSDN \ internal надо было указать?
+{
     internal class Program
     {
         /// <summary>
@@ -18,7 +18,6 @@ namespace SalaryForWorker
         /// </summary>
         static void Main(string[] args)
         {
-            //TODO: Название \ DONE
             while (true)
             {
                 Console.Clear();
@@ -40,11 +39,11 @@ namespace SalaryForWorker
                         //TODO: опечататься. Необходимо обрабатывать пользовательский ввод для каждого случая ввода. И просить ввести
                         //TODO: заново каждый раз на том же параметре \ DONE
                         //Объеденить в общий метод все считывания на проверку инта чтобы вылетала каждый раз когда неправильно присваеваешь
+
                         switch (Convert.ToInt32(Console.ReadLine()))
                         {
                             case 1:
                             {
-                                //TODO: Ниже много косяков c RSDN \ DONE
                                 Console.WriteLine(
                                     "Введите норму часов в месяц");
                                 int rate = int.Parse(Console.ReadLine());
