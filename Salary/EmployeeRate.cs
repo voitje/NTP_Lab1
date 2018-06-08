@@ -10,7 +10,7 @@ namespace Salary
     /// <summary>
     /// Зарплата по ставке
     /// </summary>
-    public class EmployeeRate : Employee
+    public class EmployeeRate : EmployeeBase
     { 
         /// <summary>
         /// Оклад
@@ -53,12 +53,11 @@ namespace Salary
             {
                 if (value < 0)
                 {
-                    throw new Exception("Некорректная ставка");
+                    throw new Exception("Некорректная норма часов");
                 }
                 _rate = value;
             }
         }
-
         /// <summary>
         /// Подсчет зарплаты по ставке
         /// </summary>
@@ -70,17 +69,9 @@ namespace Salary
             }
             set { }
         }
-
         /// <summary>
-        /// Иницализация ставки (норма работы в месяц) и оклада
+        /// Тип зарплаты
         /// </summary>
-        public EmployeeRate(int workTime, int salary, int rate)
-            : base(workTime)
-        {
-            _salary = salary;
-            _rate = rate;
-        }
-
         public override string Type
         {
             get { return "По ставке и окладу"; }

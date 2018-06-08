@@ -41,7 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EmployeeHourly.cs" />
-    <Compile Include="Employee.cs" />
+    <Compile Include="EmployeeBase.cs" />
     <Compile Include="EmployeeRate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

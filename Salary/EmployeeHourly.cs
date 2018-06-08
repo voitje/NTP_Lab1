@@ -9,7 +9,7 @@ namespace Salary
     /// <summary>
     /// Зарплата по часам
     /// </summary>
-    public class EmployeeHourly : Employee
+    public class EmployeeHourly : EmployeeBase
     {
         /// <summary>
         /// Оплата за час
@@ -34,7 +34,6 @@ namespace Salary
                 _costPerHour = value;
             }
         }
-
         /// <summary>
         /// Подсчет зарплаты
         /// </summary>
@@ -47,16 +46,9 @@ namespace Salary
             }
             set { }
         }
-
         /// <summary>
-        /// Иницализация оплаты в час
+        /// Тип зарплаты
         /// </summary>
-        public EmployeeHourly(int workTime, int costPerHour)
-            : base(workTime)
-        {
-            CostPerHour = costPerHour;
-        }
-
         public override string Type
         {
             get { return "Почасовая"; }

@@ -15,12 +15,12 @@ namespace ViewSalaryForWorker
     public partial class SalaryForWorkerForm : Form
     {
         AddObjectForm _addObjectForm;
-        List<Employee> _employees;
+        List<EmployeeBase> _employees;
         
         public SalaryForWorkerForm()
         {
             InitializeComponent();
-            _employees = new List<Employee>();
+            _employees = new List<EmployeeBase>();
             _addObjectForm = new AddObjectForm();
 
             bindingSource1.DataSource = _employees;
@@ -32,9 +32,9 @@ namespace ViewSalaryForWorker
         {
 
             _addObjectForm.ShowDialog();
-            if (_addObjectForm.Employee != null)
+            if (_addObjectForm.EmployeeBase != null)
             {
-                bindingSource1.Add(_addObjectForm.Employee);
+                bindingSource1.Add(_addObjectForm.EmployeeBase);
             }
             //this.Hide();
             //EmployeeHourly employeeHourly = new EmployeeHourly(int.Parse(textBox_WorkTime.Text), int.Parse(textBox_CostPerHour.Text));
@@ -52,7 +52,7 @@ namespace ViewSalaryForWorker
             var addObjectForm = new AddObjectForm();
             //addObjectForm.ShowDialog();
             //Забираем пользовательский текст из формы.
-            Employee enteredObject = addObjectForm.Employee;
+            EmployeeBase enteredObject = addObjectForm.EmployeeBase;
             //Делаем с текстом что-угодно - например, покажем его пользователю
             //MessageBox.Show(enteredText);
             _employees.Add(enteredObject);

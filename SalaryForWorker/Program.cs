@@ -4,7 +4,9 @@
 //TODO: Выполните подключение не бинарником, а прямо проектом
 using Salary;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.InteropServices;
@@ -14,6 +16,22 @@ namespace SalaryForWorker
     internal class Program
     {
         /// <summary>
+        /// Проверка на правильный ввод
+        /// </summary>
+        static int CheckValidation(string inputInformation)
+        {
+            Console.WriteLine(inputInformation);
+            int element = int.Parse(Console.ReadLine());
+            while (element < 0)
+            {
+                Console.WriteLine("Введите корректное значение");
+                int newElement = int.Parse(Console.ReadLine());
+                element = newElement;
+            }
+            return element;
+        }
+
+        /// <summary>
         /// Консольный интерфейс зарплат
         /// </summary>
         static void Main(string[] args)
@@ -22,84 +40,54 @@ namespace SalaryForWorker
             {
                 Console.Clear();
                 Console.WriteLine(
-                    "\n------List of Person: Main Menu------" +
+                    "\n------Main Menu------" +
                     "\n1. Расчитать зарплату по ставке" +
                     "\n2. Расчитать зарплату по часам" +
                     "\n0. Выход" +
-                     "\n------List of Person : Main Menu------");
+                    "\n------Main Menu------");
 
                 Console.WriteLine("\n\n\nChoose action (1-2):\n>");
-                bool isError;
-                do
+                //TODO: Сейчас после ошибки во вводе пользователь должен начинать ввод заново - это не правильно - он мог 
+                //TODO: опечататься. Необходимо обрабатывать пользовательский ввод для каждого случая ввода. И просить ввести
+                //TODO: заново каждый раз на том же параметре \ DONE
+
+                switch (Convert.ToInt32(Console.ReadLine()))
                 {
-                    isError = false;
-                    try
+                    case 1:
                     {
-                        //TODO: Сейчас после ошибки во вводе пользователь должен начинать ввод заново - это не правильно - он мог 
-                        //TODO: опечататься. Необходимо обрабатывать пользовательский ввод для каждого случая ввода. И просить ввести
-                        //TODO: заново каждый раз на том же параметре \ DONE
-                        //Объеденить в общий метод все считывания на проверку инта чтобы вылетала каждый раз когда неправильно присваеваешь
+                        EmployeeRate employeeRate = new EmployeeRate();
 
-                        switch (Convert.ToInt32(Console.ReadLine()))
-                        {
-                            case 1:
-                            {
-                                Console.WriteLine(
-                                    "Введите норму часов в месяц");
-                                int rate = int.Parse(Console.ReadLine());
+                        employeeRate.Rate = CheckValidation("Введите норму часов в месяц");
+                        employeeRate.Salary = CheckValidation("Введите месячный оклад");
+                        employeeRate.WorkTime = CheckValidation("Введите время работы в месяц (в часах)");
 
-                                Console.WriteLine(
-                                    "Введите месячный оклад");
-                                int salary = int.Parse(Console.ReadLine());
+                        Console.WriteLine("Зарплата за " + employeeRate.WorkTime +
+                                          " часов работы " + "c окладом "
+                                          + employeeRate.Salary + " и с нормой в"
+                                          + employeeRate.Rate +
+                                          " часов с учетом налога на доходы физических лиц:");
+                        Console.WriteLine(employeeRate.GetSalary);
 
-                                Console.WriteLine(
-                                    "Введите время работы в месяц (в часах)");
-                                int workTime = int.Parse(Console.ReadLine());
-
-                                EmployeeRate employeeRate =
-                                    new EmployeeRate(workTime, salary, rate);
-
-                                Console.WriteLine("Зарплата за " + workTime +
-                                                  " часов работы " + "c окладом "
-                                                  + salary + " и ставкой "
-                                                  + rate + 
-                                                  " с учетом налога на доходы физических лиц:");
-                                Console.WriteLine(employeeRate.GetSalary);
-                                
-                                Console.WriteLine("Нажмите любую кнопку для продолжения работы");
-                                Console.ReadKey();
-                                break;
-                            }
-                            case 2:
-                            {
-                                Console.WriteLine(
-                                    "Введите оплату за час работы");
-                                int costPerHour = int.Parse(Console.ReadLine());
-
-                                Console.WriteLine(
-                                    "Введите время работы в месяц (в часах)");
-                                int workTime = int.Parse(Console.ReadLine());
-
-                                EmployeeHourly employeeHourly =
-                                    new EmployeeHourly(workTime, costPerHour);
-
-                                Console.WriteLine("Зарплата за " + workTime +
-                                                  " часов работы " + "c " + costPerHour + " за час работы:");
-                                Console.WriteLine(employeeHourly.GetSalary);
-
-                                Console.WriteLine("Нажмите любую кнопку для продолжения работы");
-                                Console.ReadKey();
-                                break;
-                            }
-                        }
-                    }
-                    catch (Exception exception)
-                    {
-                        Console.WriteLine(exception.Message);
+                        Console.WriteLine("Нажмите любую кнопку для продолжения работы");
                         Console.ReadKey();
-                        isError = true;
+                        break;
                     }
-                } while (isError);
+                    case 2:
+                    {
+                        EmployeeHourly employeeHourly = new EmployeeHourly();
+
+                        employeeHourly.CostPerHour = CheckValidation("Введите оплату за час работы");
+                        employeeHourly.WorkTime = CheckValidation("Введите время работы в месяц (в часах)");
+
+                        Console.WriteLine("Зарплата за " + employeeHourly.WorkTime +
+                                          " часов работы " + "c " + employeeHourly.CostPerHour + " за час работы:");
+                        Console.WriteLine(employeeHourly.GetSalary);
+
+                        Console.WriteLine("Нажмите любую кнопку для продолжения работы");
+                        Console.ReadKey();
+                        break;
+                    }
+                }
             }
         }
     }

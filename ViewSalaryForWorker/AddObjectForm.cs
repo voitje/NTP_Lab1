@@ -59,18 +59,25 @@ namespace ViewSalaryForWorker
             this.Close();
         }
 
-        public Employee Employee { get; private set; }
+        public EmployeeBase EmployeeBase { get; private set; }
         private void button2_Click(object sender, EventArgs e)
         {
             if (label2.Text == "Оплата в час")
             {
-
-                Employee = new EmployeeHourly(Convert.ToInt32(textBox1.Text), Convert.ToInt32(textBox1.Text));
+                EmployeeHourly employeeHourly = new EmployeeHourly();
+                employeeHourly.WorkTime = Convert.ToInt32(textBox1.Text);
+                employeeHourly.CostPerHour = Convert.ToInt32(textBox1.Text);
+                //EmployeeBase = new EmployeeHourly(Convert.ToInt32(textBox1.Text), Convert.ToInt32(textBox1.Text));
+                EmployeeBase = employeeHourly;
 
             }
             else
             {
-                Employee = new EmployeeRate(Convert.ToInt32(textBox1.Text), Convert.ToInt32(textBox2.Text), Convert.ToInt32(textBox3.Text));
+                EmployeeRate employeeRate = new EmployeeRate();
+                employeeRate.WorkTime = Convert.ToInt32(textBox1.Text);
+                employeeRate.Salary = Convert.ToInt32(textBox2.Text);
+                employeeRate.Rate = Convert.ToInt32(textBox3.Text);
+                //EmployeeBase = new EmployeeRate(Convert.ToInt32(textBox1.Text), Convert.ToInt32(textBox2.Text), Convert.ToInt32(textBox3.Text));
             }
             //salaryForWorker.ShowDialog();
             //list.Add(employeeHourly);

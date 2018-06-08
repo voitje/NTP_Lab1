@@ -11,13 +11,13 @@ namespace Salary
     /// <summary>
     /// Зарплата
     /// </summary>
-    public abstract class Employee
+    public abstract class EmployeeBase
     {
         /// <summary>
         /// Время работы
         /// </summary>
         private int _workTime;
-
+        
         /// <summary>
         /// Время работы
         /// </summary>
@@ -36,23 +36,14 @@ namespace Salary
                 _workTime = value;
             }
         }
-
         /// <summary>
         /// Подсчет зарплаты
         /// </summary>
-
         public abstract int GetSalary { get; set; }
         //TODO: XML \ DONE
-        //TODO: Можно заменить модификатор доступа на protected \ DONE
-
         /// <summary>
-        /// Иницализация рабочего времени
+        /// Тип зарплаты
         /// </summary>
-        protected Employee(int workTime)
-        {
-            WorkTime = workTime;
-        }
-
         public abstract string Type { get; }
     }
 }
