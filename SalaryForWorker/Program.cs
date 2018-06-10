@@ -1,7 +1,4 @@
 ﻿using System;
-//TODO: Не компилится из-за неправильно подключенного проекта
-//TODO: Скорее всего вы его подключаете как сборку .dll а саму сборку не добавили в репозиторий.
-//TODO: Выполните подключение не бинарником, а прямо проектом
 using Salary;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -21,7 +18,9 @@ namespace SalaryForWorker
         static int CheckValidation(string inputInformation)
         {
             Console.WriteLine(inputInformation);
+            //BUG: Падает при некорректном вводе.
             int element = int.Parse(Console.ReadLine());
+            //TODO: Неправильно использовать int для поля, где должно лежать беззнаковое значение
             while (element < 0)
             {
                 Console.WriteLine("Введите корректное значение");
@@ -49,7 +48,8 @@ namespace SalaryForWorker
                 Console.WriteLine("\n\n\nChoose action (1-2):\n>");
                 //TODO: Сейчас после ошибки во вводе пользователь должен начинать ввод заново - это не правильно - он мог 
                 //TODO: опечататься. Необходимо обрабатывать пользовательский ввод для каждого случая ввода. И просить ввести
-                //TODO: заново каждый раз на том же параметре \ DONE
+                //TODO: заново каждый раз на том же параметре 
+                //TODO: Не работает, при вводе некорректного параметра программа завершится с исключением.
 
                 switch (Convert.ToInt32(Console.ReadLine()))
                 {

@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Salary
 {
-    //TODO: Косяк c RSDN \ DONE (если я понял что abstract и public местами поменять) \ Не верно, верните обратно
-    //TODO: Почитайте - как в RSDN должны называться базовые классы
+    //TODO: Правильнее бы в наследниках было зайдействовать конструктор на set параметров, а в самих полях сделать set 
+    //TODO: приватным
     /// <summary>
     /// Зарплата
     /// </summary>
@@ -36,11 +36,12 @@ namespace Salary
                 _workTime = value;
             }
         }
+        //TODO: Название!
         /// <summary>
         /// Подсчет зарплаты
         /// </summary>
         public abstract int GetSalary { get; set; }
-        //TODO: XML \ DONE
+
         /// <summary>
         /// Тип зарплаты
         /// </summary>

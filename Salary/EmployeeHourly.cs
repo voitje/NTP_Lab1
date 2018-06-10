@@ -27,6 +27,7 @@ namespace Salary
             }
             set
             {
+                //TODO: Это исключение нигде не обрабатывается 
                 if (value < 0)
                 {
                     throw new Exception("Некорректная оплата за час");
@@ -34,6 +35,7 @@ namespace Salary
                 _costPerHour = value;
             }
         }
+        //TODO: Название!
         /// <summary>
         /// Подсчет зарплаты
         /// </summary>
@@ -44,6 +46,7 @@ namespace Salary
                 const int hoursPerDay = 24;
                 return WorkTime / hoursPerDay * CostPerHour;
             }
+            //TODO: Пустой set!
             set { }
         }
         /// <summary>

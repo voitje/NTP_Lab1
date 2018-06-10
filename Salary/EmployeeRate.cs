@@ -28,6 +28,7 @@ namespace Salary
             }
             set
             {
+                //TODO: Это исключение нигде не обрабатывается 
                 if (value < 0)
                 {
                     throw new Exception("Некорректный оклад");
@@ -51,6 +52,7 @@ namespace Salary
             }
             set
             {
+                //TODO: Это исключение нигде не обрабатывается 
                 if (value < 0)
                 {
                     throw new Exception("Некорректная норма часов");
@@ -67,6 +69,7 @@ namespace Salary
             {
                 return _salary / _rate * WorkTime;
             }
+            //TODO: Пустой set!
             set { }
         }
         /// <summary>
