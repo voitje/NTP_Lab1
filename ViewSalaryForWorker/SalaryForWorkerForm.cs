@@ -28,17 +28,6 @@ namespace ViewSalaryForWorker
             bindingSource1.DataSource = _employees;
             dataGridView1.DataSource = bindingSource1;
 
-            //ToolStripMenuItem filename = new ToolStripMenuItem("File");
-
-            //filename.DropDownItems.Add("Открыть");
-            //filename.DropDownItems.Add(new ToolStripMenuItem("Сохранить"));
-
-            //menuStrip1.Items.Add(filename);
-            //fileToolStripMenuItem.Image = Image.FromFile(@"D:\Icons\0023\block32.png");
-            ToolStripMenuItem aboutItem = new ToolStripMenuItem("О программе");
-            //aboutItem.Click += aboutItem_Click;
-            menuStrip1.Items.Add(aboutItem);
-
             List<Type> knownTypeList = new List<Type>
             {
                 typeof(EmployeeHourly),
@@ -66,20 +55,6 @@ namespace ViewSalaryForWorker
                 int index = dataGridView1.SelectedCells[0].RowIndex;
                 dataGridView1.Rows.RemoveAt(index);
             }
-        }
-        
-        void GetTextFromAddObjectForm()
-        {   
-            var addObjectForm = new AddObjectForm();
-            //addObjectForm.ShowDialog();
-            //Забираем пользовательский текст из формы.
-            EmployeeBase enteredObject = addObjectForm.EmployeeBase;
-            //Делаем с текстом что-угодно - например, покажем его пользователю
-            //MessageBox.Show(enteredText);
-            _employees.Add(enteredObject);
-            dataGridView1.DataSource = null;
-            dataGridView1.DataSource = _employees;
-
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
@@ -126,14 +101,5 @@ namespace ViewSalaryForWorker
                 fileStream.Dispose();
             }
         }
-        //void SetTextToAddObjectForm()
-        //{
-        //    var addObjectForm = new AddObjectForm();
-        //    addObjectForm.EnteredText = "Текст, который мы хотим показать пользователю на второй форме";
-        //    addObjectForm.ShowDialog(); // Форма покажется с нашим текстом из главной формы
-
-        //    //После ShowDialog() пользователь мог ввести новый текст. И мы можем его забрать.
-        //    var enteredText = addObjectForm.EnteredText;
-        //}
     }
 }
