@@ -42,14 +42,14 @@ namespace SalaryForWorker
                     "\n0. Выход" +
                     "\n------Main Menu------");
 
-                Console.WriteLine("\n\n\nChoose action (1-2):\n>");
+                Console.WriteLine("\n\n\nВыберите действие (1-2):\n>");
                 //TODO: Сейчас после ошибки во вводе пользователь должен начинать ввод заново - это не правильно - он мог 
                 //TODO: опечататься. Необходимо обрабатывать пользовательский ввод для каждого случая ввода. И просить ввести
                 //TODO: заново каждый раз на том же параметре 
                 //TODO: Не работает, при вводе некорректного параметра программа завершится с исключением. 
-                //TODO: Падает от ввода любых некорректных параметров
+                //TODO: Падает от ввода любых некорректных параметров \ DONE 99%
 
-                switch (Convert.ToInt32(Console.ReadLine()))
+                switch (CheckValidation("Нажатая цифра с клавиатуры соответствует выбранному действию"))
                 {
                     case 1:
                     {
@@ -63,7 +63,7 @@ namespace SalaryForWorker
                                           + employeeRate.Salary + " и с нормой в "
                                           + employeeRate.Rate +
                                           " часов с учетом налога на доходы физических лиц:");
-                        Console.WriteLine(employeeRate.CalculateSalary);
+                        Console.WriteLine(employeeRate.Payroll);
 
                         Console.WriteLine("Нажмите любую кнопку для продолжения работы");
                         Console.ReadKey();
@@ -77,7 +77,7 @@ namespace SalaryForWorker
 
                         Console.WriteLine("Зарплата за " + employeeHourly.WorkTime +
                                           " часов работы " + "c " + employeeHourly.CostPerHour + " за час работы:");
-                        Console.WriteLine(employeeHourly.CalculateSalary);
+                        Console.WriteLine(employeeHourly.Payroll);
 
                         Console.WriteLine("Нажмите любую кнопку для продолжения работы");
                         Console.ReadKey();

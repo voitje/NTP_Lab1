@@ -26,8 +26,21 @@ namespace Salary
         public uint CostPerHour
         {
             get => _costPerHour;
-            //TODO: А где ограничения с низу и верху?
-            private set => _costPerHour = value;
+            //TODO: А где ограничения с низу и верху? \ DONE
+            private set
+            {
+                int maxCostPerHour = 1400;
+                uint tempValue;
+                while (value >= maxCostPerHour || value == 0)
+                {
+                    Console.WriteLine(
+                        "\nВведеное время работы больше допустимого значения (1400) и не равно нулю" +
+                        "\n Введите корректное значение");
+                    tempValue = uint.Parse(Console.ReadLine());
+                    value = tempValue;
+                }
+                _costPerHour = value;
+            }
         }
         
         /// <summary>
@@ -39,11 +52,11 @@ namespace Salary
             CostPerHour = costPerHour;
         }
 
-        //TODO: Название! Свойство должно быть существительным, а не действием.
+        //TODO: Название! Свойство должно быть существительным, а не действием. \ DONE
         /// <summary>
         /// Подсчет зарплаты
         /// </summary>
-        public override uint CalculateSalary
+        public override uint Payroll
         {
             get => WorkTime  * CostPerHour;
         }

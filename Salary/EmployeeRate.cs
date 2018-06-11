@@ -29,8 +29,21 @@ namespace Salary
             get
             {
                 return _salary;
-            }//TODO: А где ограничения с низу и верху?
-            private set => _salary = value;
+            }//TODO: А где ограничения с низу и верху? \ DONE
+            private set
+            {
+                int maxSalaryInMonth = 1000000;
+                uint tempValue;
+                while (value >= maxSalaryInMonth || value == 0)
+                {
+                    Console.WriteLine(
+                        "\nВведеное время работы больше допустимого значения (1000000) и не равно нулю" +
+                        "\n Введите корректное значение");
+                    tempValue = uint.Parse(Console.ReadLine());
+                    value = tempValue;
+                }
+                _salary = value;
+            }
         }
         /// <summary>
         /// Ставка (норма работы в месяц)
@@ -46,8 +59,21 @@ namespace Salary
             get
             {
                 return _rate;
-            }//TODO: А где ограничения с низу и верху?
-            private set => _rate = value;
+            }//TODO: А где ограничения с низу и верху? \ DONE
+            private set
+            {
+                int maxHourInMonth = 372;
+                uint tempValue;
+                while (value >= maxHourInMonth || value == 0)
+                {
+                    Console.WriteLine(
+                        "\nВведеная норма работы больше допустимого значения (372) и не равно нулю" +
+                        "\n Введите корректное значение");
+                    tempValue = uint.Parse(Console.ReadLine());
+                    value = tempValue;
+                }
+                _rate = value;
+            }
         }
 
         /// <summary>
@@ -59,14 +85,18 @@ namespace Salary
             Salary = salary;
             Rate = rate;
         }
-        //TODO: Название! Свойство должно быть существительным, а не действием.
+        //TODO: Название! Свойство должно быть существительным, а не действием. \ DONE
         /// <summary>
         /// Подсчет зарплаты по ставке
         /// </summary>
-        public override uint CalculateSalary
+        public override uint Payroll
         {
             get
             {
+                if (WorkTime == 0)
+                {
+                    return 0;
+                }
                 return (uint) ((decimal)_salary / _rate * WorkTime);
             }
         }
