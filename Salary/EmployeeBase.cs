@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,11 +12,13 @@ namespace Salary
     /// <summary>
     /// Зарплата
     /// </summary>
+    [DataContract]
     public abstract class EmployeeBase
     {
         /// <summary>
         /// Время работы
         /// </summary>
+        [DataMember]
         private uint _workTime;
         
         /// <summary>

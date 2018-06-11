@@ -3,6 +3,7 @@ using System.CodeDom;
 using System.Collections.Generic;
 using System.Dynamic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,11 +12,13 @@ namespace Salary
     /// <summary>
     /// Зарплата по ставке
     /// </summary>
+    [DataContract]
     public class EmployeeRate : EmployeeBase
     { 
         /// <summary>
         /// Оклад
         /// </summary>
+        [DataMember]
         private uint _salary;
 
         /// <summary>
@@ -32,6 +35,7 @@ namespace Salary
         /// <summary>
         /// Ставка (норма работы в месяц)
         /// </summary>
+        [DataMember]
         private uint _rate;
 
         /// <summary>

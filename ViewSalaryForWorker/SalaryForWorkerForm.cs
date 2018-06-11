@@ -28,12 +28,12 @@ namespace ViewSalaryForWorker
             bindingSource1.DataSource = _employees;
             dataGridView1.DataSource = bindingSource1;
 
-            ToolStripMenuItem filename = new ToolStripMenuItem("File");
+            //ToolStripMenuItem filename = new ToolStripMenuItem("File");
 
-            filename.DropDownItems.Add("Открыть");
-            filename.DropDownItems.Add(new ToolStripMenuItem("Сохранить"));
+            //filename.DropDownItems.Add("Открыть");
+            //filename.DropDownItems.Add(new ToolStripMenuItem("Сохранить"));
 
-            menuStrip1.Items.Add(filename);
+            //menuStrip1.Items.Add(filename);
             //fileToolStripMenuItem.Image = Image.FromFile(@"D:\Icons\0023\block32.png");
             ToolStripMenuItem aboutItem = new ToolStripMenuItem("О программе");
             //aboutItem.Click += aboutItem_Click;
@@ -80,6 +80,51 @@ namespace ViewSalaryForWorker
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = _employees;
 
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.AddExtension = true;
+            openFileDialog1.Filter = "Employee|*.fig";
+            DialogResult result = openFileDialog1.ShowDialog();
+
+            if (result == DialogResult.Cancel)
+            {
+                return;
+            }
+            else
+            {
+
+                FileStream fileStream = new FileStream(openFileDialog1.FileName, FileMode.OpenOrCreate);
+                List<EmployeeBase> deserializeFigures = (List<EmployeeBase>)_serializer.ReadObject(fileStream);
+                fileStream.Dispose();
+
+                bindingSource1.Clear();
+
+                foreach (EmployeeBase salary in deserializeFigures)
+                {
+                    bindingSource1.Add(salary);
+                }
+            }
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            saveFileDialog1.AddExtension = true;
+            saveFileDialog1.Filter = "Employee|*.fig";
+            DialogResult result = saveFileDialog1.ShowDialog();
+
+            if (result == DialogResult.Cancel)
+            {
+                return;
+            }
+            else
+            {
+
+                FileStream fileStream = new FileStream(saveFileDialog1.FileName, FileMode.OpenOrCreate);
+                _serializer.WriteObject(fileStream, _employees);
+                fileStream.Dispose();
+            }
         }
         //void SetTextToAddObjectForm()
         //{

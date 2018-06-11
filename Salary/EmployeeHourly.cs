@@ -4,17 +4,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Serialization;
 
 namespace Salary
 {
     /// <summary>
     /// Зарплата по часам
     /// </summary>
+    [DataContract]
     public class EmployeeHourly : EmployeeBase
     {
         /// <summary>
         /// Оплата за час
         /// </summary>
+        [DataMember]
         private uint _costPerHour;
 
         /// <summary>
