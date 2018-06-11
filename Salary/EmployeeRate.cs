@@ -43,14 +43,7 @@ namespace Salary
             {
                 return _rate;
             }
-            private set
-            {
-                while (!uint.TryParse(Console.ReadLine(), out value))
-                {
-                    Console.WriteLine("Введите корректную норму работы");
-                }
-                _rate = value;
-            }
+            private set => _rate = value;
         }
         /// <summary>
         /// Иницализация полей   
@@ -64,12 +57,13 @@ namespace Salary
         /// <summary>
         /// Подсчет зарплаты по ставке
         /// </summary>
-        public override uint GetSalary
+        public override uint CalculateSalary
         {
             get
             {
                 return (uint) ((decimal)_salary / _rate * WorkTime);
             }
+            //TODO: Пустой set! \ DONE
         }
         /// <summary>
         /// Тип зарплаты

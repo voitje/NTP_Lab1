@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Salary
 {
     //TODO: Правильнее бы в наследниках было зайдействовать конструктор на set параметров, а в самих полях сделать set 
-    //TODO: приватным
+    //TODO: приватным \ DONE
     /// <summary>
     /// Зарплата
     /// </summary>
@@ -23,10 +23,7 @@ namespace Salary
         /// </summary>
         public uint WorkTime
         {
-            get
-            {
-                return _workTime;
-            }
+            get => _workTime;
             private set => _workTime = value;
         }
 
@@ -38,11 +35,13 @@ namespace Salary
             WorkTime = workTime;
         }
 
+        //TODO: Название! \ DONE
         /// <summary>
         /// Подсчет зарплаты
         /// </summary>
-        public abstract uint GetSalary { get; }
+        public abstract uint CalculateSalary { get; }
         //TODO: XML \ DONE
+
         /// <summary>
         /// Тип зарплаты
         /// </summary>

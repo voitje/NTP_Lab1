@@ -78,7 +78,7 @@
             // 
             // Salary
             // 
-            this.Salary.DataPropertyName = "GetSalary";
+            this.Salary.DataPropertyName = "CalculateSalary";
             this.Salary.HeaderText = "Зарплата";
             this.Salary.Name = "Salary";
             // 

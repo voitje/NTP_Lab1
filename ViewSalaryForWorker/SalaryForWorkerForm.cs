@@ -34,7 +34,7 @@ namespace ViewSalaryForWorker
             filename.DropDownItems.Add(new ToolStripMenuItem("Сохранить"));
 
             menuStrip1.Items.Add(filename);
-            fileToolStripMenuItem.Image = Image.FromFile(@"D:\Icons\0023\block32.png");
+            //fileToolStripMenuItem.Image = Image.FromFile(@"D:\Icons\0023\block32.png");
             ToolStripMenuItem aboutItem = new ToolStripMenuItem("О программе");
             //aboutItem.Click += aboutItem_Click;
             menuStrip1.Items.Add(aboutItem);

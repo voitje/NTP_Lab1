@@ -25,6 +25,7 @@ namespace Salary
             get => _costPerHour;
             private set => _costPerHour = value;
         }
+        //TODO: Название!
         /// <summary>
         /// Иницализация полей   
         /// </summary>
@@ -37,7 +38,7 @@ namespace Salary
         /// <summary>
         /// Подсчет зарплаты
         /// </summary>
-        public override uint GetSalary
+        public override uint CalculateSalary
         {
             get => WorkTime  * CostPerHour;
             //TODO: Пустой set! \ DONE

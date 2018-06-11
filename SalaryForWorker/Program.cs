@@ -1,7 +1,4 @@
 ﻿using System;
-//TODO: Не компилится из-за неправильно подключенного проекта
-//TODO: Скорее всего вы его подключаете как сборку .dll а саму сборку не добавили в репозиторий.
-//TODO: Выполните подключение не бинарником, а прямо проектом
 using Salary;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -27,7 +24,7 @@ namespace SalaryForWorker
             while (!uint.TryParse(Console.ReadLine(), out element))
             {
 
-                Console.WriteLine("Введите целое число");
+                Console.WriteLine("Введите целое, положительное число");
             }
             return element;
         }
@@ -58,8 +55,8 @@ namespace SalaryForWorker
                     case 1:
                     {
                         EmployeeRate employeeRate = 
-                            new EmployeeRate(CheckValidation("Введите время работы в месяц (в часах)"),
-                            CheckValidation("Введите месячный оклад"), 
+                            new EmployeeRate(CheckValidation("Введите время работы в месяц (в часах)"), 
+                                CheckValidation("Введите месячный оклад"), 
                                 CheckValidation("Введите норму часов в месяц"));
 
                         Console.WriteLine("Зарплата за " + employeeRate.WorkTime +
@@ -67,7 +64,7 @@ namespace SalaryForWorker
                                           + employeeRate.Salary + " и с нормой в "
                                           + employeeRate.Rate +
                                           " часов с учетом налога на доходы физических лиц:");
-                        Console.WriteLine(employeeRate.GetSalary);
+                        Console.WriteLine(employeeRate.CalculateSalary);
 
                         Console.WriteLine("Нажмите любую кнопку для продолжения работы");
                         Console.ReadKey();
@@ -81,7 +78,7 @@ namespace SalaryForWorker
 
                         Console.WriteLine("Зарплата за " + employeeHourly.WorkTime +
                                           " часов работы " + "c " + employeeHourly.CostPerHour + " за час работы:");
-                        Console.WriteLine(employeeHourly.GetSalary);
+                        Console.WriteLine(employeeHourly.CalculateSalary);
 
                         Console.WriteLine("Нажмите любую кнопку для продолжения работы");
                         Console.ReadKey();
