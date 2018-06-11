@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.Serialization.Json;
 using Salary;
 
 namespace ViewSalaryForWorker
@@ -16,7 +17,8 @@ namespace ViewSalaryForWorker
     {
         AddObjectForm _addObjectForm;
         List<EmployeeBase> _employees;
-        
+        DataContractJsonSerializer _serializer;
+
         public SalaryForWorkerForm()
         {
             InitializeComponent();
@@ -25,30 +27,49 @@ namespace ViewSalaryForWorker
 
             bindingSource1.DataSource = _employees;
             dataGridView1.DataSource = bindingSource1;
+
+            ToolStripMenuItem filename = new ToolStripMenuItem("File");
+
+            filename.DropDownItems.Add("Открыть");
+            filename.DropDownItems.Add(new ToolStripMenuItem("Сохранить"));
+
+            menuStrip1.Items.Add(filename);
+            fileToolStripMenuItem.Image = Image.FromFile(@"D:\Icons\0023\block32.png");
+            ToolStripMenuItem aboutItem = new ToolStripMenuItem("О программе");
+            //aboutItem.Click += aboutItem_Click;
+            menuStrip1.Items.Add(aboutItem);
+
+            List<Type> knownTypeList = new List<Type>
+            {
+                typeof(EmployeeHourly),
+                typeof(EmployeeRate)
+            };
+
+            _serializer = new DataContractJsonSerializer(typeof(List<EmployeeBase>), knownTypeList);
         }
-        
-        
+       
+
         private void button1_Click(object sender, EventArgs e)
         {
-
             _addObjectForm.ShowDialog();
             if (_addObjectForm.EmployeeBase != null)
             {
                 bindingSource1.Add(_addObjectForm.EmployeeBase);
             }
-            //this.Hide();
-            //EmployeeHourly employeeHourly = new EmployeeHourly(int.Parse(textBox_WorkTime.Text), int.Parse(textBox_CostPerHour.Text));
-            //list.Add(employeeHourly);
-           // dataGridView1.DataSource = null;
-            //dataGridView1.DataSource = list;
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            _employees.RemoveAt(2);
+            if (dataGridView1.SelectedCells.Count > 0)
+            {
+                int index = dataGridView1.SelectedCells[0].RowIndex;
+                dataGridView1.Rows.RemoveAt(index);
+            }
         }
+        
         void GetTextFromAddObjectForm()
-        {
+        {   
             var addObjectForm = new AddObjectForm();
             //addObjectForm.ShowDialog();
             //Забираем пользовательский текст из формы.
@@ -69,10 +90,5 @@ namespace ViewSalaryForWorker
         //    //После ShowDialog() пользователь мог ввести новый текст. И мы можем его забрать.
         //    var enteredText = addObjectForm.EnteredText;
         //}
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            //GetTextFromAddObjectForm();
-        }
     }
 }

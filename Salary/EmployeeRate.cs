@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Dynamic;
 using System.Linq;
@@ -15,59 +16,60 @@ namespace Salary
         /// <summary>
         /// Оклад
         /// </summary>
-        private int _salary;
+        private uint _salary;
 
         /// <summary>
         /// Оклад
         /// </summary>
-        public int Salary
+        public uint Salary
         {
             get
             {
                 return _salary;
             }
-            set
-            {
-                if (value < 0)
-                {
-                    throw new Exception("Некорректный оклад");
-                }
-                _salary = value;
-            }
+            private set => _salary = value;
         }
         /// <summary>
         /// Ставка (норма работы в месяц)
         /// </summary>
-        private int _rate;
+        private uint _rate;
 
         /// <summary>
         /// Ставка (норма работы в месяц)
         /// </summary>
-        public int Rate
+        public  uint Rate
         {
             get
             {
                 return _rate;
             }
-            set
+            private set
             {
-                if (value < 0)
+                while (!uint.TryParse(Console.ReadLine(), out value))
                 {
-                    throw new Exception("Некорректная норма часов");
+                    Console.WriteLine("Введите корректную норму работы");
                 }
                 _rate = value;
             }
         }
         /// <summary>
+        /// Иницализация полей   
+        /// </summary>
+        public EmployeeRate(uint workTime, uint salary, uint rate)
+            : base(workTime)
+        {
+            Salary = salary;
+            Rate = rate;
+        }
+        /// <summary>
         /// Подсчет зарплаты по ставке
         /// </summary>
-        public override int GetSalary
+        public override uint GetSalary
         {
             get
             {
-                return _salary / _rate * WorkTime;
+                return (uint) ((decimal)_salary / _rate * WorkTime);
             }
-            set { }
         }
         /// <summary>
         /// Тип зарплаты

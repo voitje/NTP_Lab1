@@ -91,11 +91,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(141, 114);
+            this.label2.Location = new System.Drawing.Point(93, 114);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 17);
+            this.label2.Size = new System.Drawing.Size(105, 17);
             this.label2.TabIndex = 5;
-            this.label2.Text = "Отклад";
+            this.label2.Text = "Оклад (норма)";
             // 
             // label3
             // 

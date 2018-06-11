@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,44 +15,36 @@ namespace Salary
         /// <summary>
         /// Оплата за час
         /// </summary>
-        private int _costPerHour;
+        private uint _costPerHour;
 
         /// <summary>
         /// Оплата за час
         /// </summary>
-        public int CostPerHour
+        public uint CostPerHour
         {
-            get
-            {
-                return _costPerHour;
-            }
-            set
-            {
-                if (value < 0)
-                {
-                    throw new Exception("Некорректная оплата за час");
-                }
-                _costPerHour = value;
-            }
+            get => _costPerHour;
+            private set => _costPerHour = value;
         }
+        /// <summary>
+        /// Иницализация полей   
+        /// </summary>
+        public EmployeeHourly(uint workTime, uint costPerHour)
+            : base (workTime)
+        {
+            CostPerHour = costPerHour;
+        }
+
         /// <summary>
         /// Подсчет зарплаты
         /// </summary>
-        public override int GetSalary
+        public override uint GetSalary
         {
-            get
-            {
-                const int hoursPerDay = 24;
-                return WorkTime / hoursPerDay * CostPerHour;
-            }
-            set { }
+            get => WorkTime  * CostPerHour;
+            //TODO: Пустой set! \ DONE
         }
         /// <summary>
         /// Тип зарплаты
         /// </summary>
-        public override string Type
-        {
-            get { return "Почасовая"; }
-        }
+        public override string Type => "Почасовая";
     }
 }

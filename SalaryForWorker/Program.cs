@@ -18,15 +18,16 @@ namespace SalaryForWorker
         /// <summary>
         /// Проверка на правильный ввод
         /// </summary>
-        static int CheckValidation(string inputInformation)
+        static uint CheckValidation(string inputInformation)
         {
             Console.WriteLine(inputInformation);
-            int element = int.Parse(Console.ReadLine());
-            while (element < 0)
+            //BUG: Падает при некорректном вводе. \ FIX
+            uint element;
+            //TODO: Неправильно использовать int для поля, где должно лежать беззнаковое значение \ DONE
+            while (!uint.TryParse(Console.ReadLine(), out element))
             {
-                Console.WriteLine("Введите корректное значение");
-                int newElement = int.Parse(Console.ReadLine());
-                element = newElement;
+
+                Console.WriteLine("Введите целое число");
             }
             return element;
         }
@@ -49,21 +50,21 @@ namespace SalaryForWorker
                 Console.WriteLine("\n\n\nChoose action (1-2):\n>");
                 //TODO: Сейчас после ошибки во вводе пользователь должен начинать ввод заново - это не правильно - он мог 
                 //TODO: опечататься. Необходимо обрабатывать пользовательский ввод для каждого случая ввода. И просить ввести
-                //TODO: заново каждый раз на том же параметре \ DONE
+                //TODO: заново каждый раз на том же параметре 
+                //TODO: Не работает, при вводе некорректного параметра программа завершится с исключением. \ DONE
 
                 switch (Convert.ToInt32(Console.ReadLine()))
                 {
                     case 1:
                     {
-                        EmployeeRate employeeRate = new EmployeeRate();
-
-                        employeeRate.Rate = CheckValidation("Введите норму часов в месяц");
-                        employeeRate.Salary = CheckValidation("Введите месячный оклад");
-                        employeeRate.WorkTime = CheckValidation("Введите время работы в месяц (в часах)");
+                        EmployeeRate employeeRate = 
+                            new EmployeeRate(CheckValidation("Введите время работы в месяц (в часах)"),
+                            CheckValidation("Введите месячный оклад"), 
+                                CheckValidation("Введите норму часов в месяц"));
 
                         Console.WriteLine("Зарплата за " + employeeRate.WorkTime +
                                           " часов работы " + "c окладом "
-                                          + employeeRate.Salary + " и с нормой в"
+                                          + employeeRate.Salary + " и с нормой в "
                                           + employeeRate.Rate +
                                           " часов с учетом налога на доходы физических лиц:");
                         Console.WriteLine(employeeRate.GetSalary);
@@ -74,10 +75,9 @@ namespace SalaryForWorker
                     }
                     case 2:
                     {
-                        EmployeeHourly employeeHourly = new EmployeeHourly();
-
-                        employeeHourly.CostPerHour = CheckValidation("Введите оплату за час работы");
-                        employeeHourly.WorkTime = CheckValidation("Введите время работы в месяц (в часах)");
+                        EmployeeHourly employeeHourly = 
+                            new EmployeeHourly(CheckValidation("Введите время работы в месяц (в часах)"),
+                            CheckValidation("Введите оплату за час работы"));
 
                         Console.WriteLine("Зарплата за " + employeeHourly.WorkTime +
                                           " часов работы " + "c " + employeeHourly.CostPerHour + " за час работы:");
