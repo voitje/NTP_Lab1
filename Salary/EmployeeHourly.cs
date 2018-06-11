@@ -26,9 +26,10 @@ namespace Salary
         public uint CostPerHour
         {
             get => _costPerHour;
+            //TODO: А где ограничения с низу и верху?
             private set => _costPerHour = value;
         }
-        //TODO: Название!
+        
         /// <summary>
         /// Иницализация полей   
         /// </summary>
@@ -38,14 +39,15 @@ namespace Salary
             CostPerHour = costPerHour;
         }
 
+        //TODO: Название! Свойство должно быть существительным, а не действием.
         /// <summary>
         /// Подсчет зарплаты
         /// </summary>
         public override uint CalculateSalary
         {
             get => WorkTime  * CostPerHour;
-            //TODO: Пустой set! \ DONE
         }
+
         /// <summary>
         /// Тип зарплаты
         /// </summary>

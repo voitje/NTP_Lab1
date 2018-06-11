@@ -29,7 +29,7 @@ namespace Salary
             get
             {
                 return _salary;
-            }
+            }//TODO: А где ограничения с низу и верху?
             private set => _salary = value;
         }
         /// <summary>
@@ -46,9 +46,10 @@ namespace Salary
             get
             {
                 return _rate;
-            }
+            }//TODO: А где ограничения с низу и верху?
             private set => _rate = value;
         }
+
         /// <summary>
         /// Иницализация полей   
         /// </summary>
@@ -58,6 +59,7 @@ namespace Salary
             Salary = salary;
             Rate = rate;
         }
+        //TODO: Название! Свойство должно быть существительным, а не действием.
         /// <summary>
         /// Подсчет зарплаты по ставке
         /// </summary>
@@ -67,7 +69,6 @@ namespace Salary
             {
                 return (uint) ((decimal)_salary / _rate * WorkTime);
             }
-            //TODO: Пустой set! \ DONE
         }
         /// <summary>
         /// Тип зарплаты

@@ -18,9 +18,7 @@ namespace SalaryForWorker
         static uint CheckValidation(string inputInformation)
         {
             Console.WriteLine(inputInformation);
-            //BUG: Падает при некорректном вводе. \ FIX
             uint element;
-            //TODO: Неправильно использовать int для поля, где должно лежать беззнаковое значение \ DONE
             while (!uint.TryParse(Console.ReadLine(), out element))
             {
 
@@ -48,7 +46,8 @@ namespace SalaryForWorker
                 //TODO: Сейчас после ошибки во вводе пользователь должен начинать ввод заново - это не правильно - он мог 
                 //TODO: опечататься. Необходимо обрабатывать пользовательский ввод для каждого случая ввода. И просить ввести
                 //TODO: заново каждый раз на том же параметре 
-                //TODO: Не работает, при вводе некорректного параметра программа завершится с исключением. \ DONE
+                //TODO: Не работает, при вводе некорректного параметра программа завершится с исключением. 
+                //TODO: Падает от ввода любых некорректных параметров
 
                 switch (Convert.ToInt32(Console.ReadLine()))
                 {
