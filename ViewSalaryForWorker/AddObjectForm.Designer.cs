@@ -51,7 +51,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 24);
             this.comboBox1.TabIndex = 0;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.SelectSalary_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -70,7 +70,7 @@
             this.button1.TabIndex = 2;
             this.button1.Text = "ОК";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.InputConfirmation_Click);
             // 
             // textBox1
             // 
@@ -130,7 +130,7 @@
             this.button2.TabIndex = 9;
             this.button2.Text = "Добавить рабочего";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.Click += new System.EventHandler(this.AddObjectButton_Click);
             // 
             // button3
             // 
@@ -140,7 +140,7 @@
             this.button3.TabIndex = 10;
             this.button3.Text = "Отмена";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.button3.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // AddObjectForm
             // 

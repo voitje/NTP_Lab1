@@ -33,12 +33,10 @@ namespace ViewSalaryForWorker
                 typeof(EmployeeHourly),
                 typeof(EmployeeRate)
             };
-
             _serializer = new DataContractJsonSerializer(typeof(List<EmployeeBase>), knownTypeList);
         }
        
-
-        private void button1_Click(object sender, EventArgs e)
+        private void AddObject_Click(object sender, EventArgs e)
         {
             _addObjectForm.ShowDialog();
             if (_addObjectForm.EmployeeBase != null)
@@ -48,7 +46,7 @@ namespace ViewSalaryForWorker
             
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void RemoveObject_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedCells.Count > 0)
             {
@@ -57,7 +55,7 @@ namespace ViewSalaryForWorker
             }
         }
 
-        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        private void OpenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             openFileDialog1.AddExtension = true;
             openFileDialog1.Filter = "Employee|*.fig";
@@ -69,7 +67,6 @@ namespace ViewSalaryForWorker
             }
             else
             {
-
                 FileStream fileStream = new FileStream(openFileDialog1.FileName, FileMode.OpenOrCreate);
                 List<EmployeeBase> deserializeFigures = (List<EmployeeBase>)_serializer.ReadObject(fileStream);
                 fileStream.Dispose();
@@ -83,7 +80,7 @@ namespace ViewSalaryForWorker
             }
         }
 
-        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        private void SaveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             saveFileDialog1.AddExtension = true;
             saveFileDialog1.Filter = "Employee|*.fig";
@@ -95,7 +92,6 @@ namespace ViewSalaryForWorker
             }
             else
             {
-
                 FileStream fileStream = new FileStream(saveFileDialog1.FileName, FileMode.OpenOrCreate);
                 _serializer.WriteObject(fileStream, _employees);
                 fileStream.Dispose();

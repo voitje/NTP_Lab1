@@ -19,13 +19,13 @@ namespace ViewSalaryForWorker
             InitializeComponent();
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void SelectSalary_SelectedIndexChanged(object sender, EventArgs e)
         {
             string selectedState = comboBox1.SelectedItem.ToString();
             MessageBox.Show(selectedState);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void InputConfirmation_Click(object sender, EventArgs e)
         {
             var salary = comboBox1.Text;
             if (salary == "По часам")
@@ -53,14 +53,14 @@ namespace ViewSalaryForWorker
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void CancelButton_Click(object sender, EventArgs e)
         {
             EmployeeBase = null;
             this.Close();
         }
 
         public EmployeeBase EmployeeBase { get; private set; }
-        private void button2_Click(object sender, EventArgs e)
+        private void AddObjectButton_Click(object sender, EventArgs e)
         {
             if (label2.Text == "Оплата в час")
             {
