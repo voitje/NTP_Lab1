@@ -21,7 +21,6 @@ namespace SalaryForWorker
             uint element;
             while (!uint.TryParse(Console.ReadLine(), out element))
             {
-
                 Console.WriteLine("Введите целое, положительное число");
             }
             return element;
@@ -43,12 +42,7 @@ namespace SalaryForWorker
                     "\n------Main Menu------");
 
                 Console.WriteLine("\n\n\nВыберите действие (1-2):\n>");
-                //TODO: Сейчас после ошибки во вводе пользователь должен начинать ввод заново - это не правильно - он мог 
-                //TODO: опечататься. Необходимо обрабатывать пользовательский ввод для каждого случая ввода. И просить ввести
-                //TODO: заново каждый раз на том же параметре 
-                //TODO: Не работает, при вводе некорректного параметра программа завершится с исключением. 
-                //TODO: Падает от ввода любых некорректных параметров \ DONE 99%
-
+                
                 switch (CheckValidation("Нажатая цифра с клавиатуры соответствует выбранному действию"))
                 {
                     case 1:
@@ -57,7 +51,7 @@ namespace SalaryForWorker
                             new EmployeeRate(CheckValidation("Введите время работы в месяц (в часах)"), 
                                 CheckValidation("Введите месячный оклад"), 
                                 CheckValidation("Введите норму часов в месяц"));
-
+                            //TODO: Лучше использовать строковую интерполяцию - смотрится понятнее.
                         Console.WriteLine("Зарплата за " + employeeRate.WorkTime +
                                           " часов работы " + "c окладом "
                                           + employeeRate.Salary + " и с нормой в "

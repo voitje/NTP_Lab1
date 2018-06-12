@@ -25,10 +25,11 @@ namespace Salary
         public uint WorkTime
         {
             get => _workTime;
-            //TODO: А где ограничения с низу и верху? \ DONE
             private set
             {
+                //TODO: константой
                 int maxHourInMonth = 372;
+                //TODO: Заче эта переменная?
                 uint tempValue;
                 while (value >= maxHourInMonth || value == 0)
                 {
@@ -50,7 +51,6 @@ namespace Salary
             WorkTime = workTime;
         }
 
-        //TODO: Название! Свойство должно быть существительным, а не действием. \ DONE
         /// <summary>
         /// Подсчет зарплаты
         /// </summary>

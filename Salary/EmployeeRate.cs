@@ -29,10 +29,11 @@ namespace Salary
             get
             {
                 return _salary;
-            }//TODO: А где ограничения с низу и верху? \ DONE
+            }
             private set
-            {
+            {//TODO: Константой
                 int maxSalaryInMonth = 1000000;
+//TODO: Зачем эта переменная?
                 uint tempValue;
                 while (value >= maxSalaryInMonth || value == 0)
                 {
@@ -59,10 +60,11 @@ namespace Salary
             get
             {
                 return _rate;
-            }//TODO: А где ограничения с низу и верху? \ DONE
+            }
             private set
-            {
+            {//TODO: Константой
                 int maxHourInMonth = 372;
+//TODO: Зачем эта переменная?
                 uint tempValue;
                 while (value >= maxHourInMonth || value == 0)
                 {
@@ -85,7 +87,7 @@ namespace Salary
             Salary = salary;
             Rate = rate;
         }
-        //TODO: Название! Свойство должно быть существительным, а не действием. \ DONE
+
         /// <summary>
         /// Подсчет зарплаты по ставке
         /// </summary>

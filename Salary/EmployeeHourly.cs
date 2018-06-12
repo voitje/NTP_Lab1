@@ -26,10 +26,11 @@ namespace Salary
         public uint CostPerHour
         {
             get => _costPerHour;
-            //TODO: А где ограничения с низу и верху? \ DONE
             private set
             {
+                //TODO: Константой
                 int maxCostPerHour = 1400;
+                //TODO: Зачем эта переменная?
                 uint tempValue;
                 while (value >= maxCostPerHour || value == 0)
                 {
@@ -52,7 +53,6 @@ namespace Salary
             CostPerHour = costPerHour;
         }
 
-        //TODO: Название! Свойство должно быть существительным, а не действием. \ DONE
         /// <summary>
         /// Подсчет зарплаты
         /// </summary>
