@@ -27,17 +27,15 @@ namespace Salary
             get => _workTime;
             private set
             {
-                //TODO: константой
-                int maxHourInMonth = 372;
-                //TODO: Заче эта переменная?
-                uint tempValue;
+                //TODO: константой \ DONE
+                const int maxHourInMonth = 372;
+                //TODO: Заче эта переменная? \ DONE
                 while (value >= maxHourInMonth || value == 0)
                 {
                     Console.WriteLine(
                         "\nВведеное время работы больше допустимого значения (372) и не равно нулю" +
                         "\n Введите корректное значение");
-                    tempValue = uint.Parse(Console.ReadLine());
-                    value = tempValue;
+                    value = uint.Parse(Console.ReadLine());
                 }
                 _workTime = value;
             }

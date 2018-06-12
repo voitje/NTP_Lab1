@@ -51,12 +51,11 @@ namespace SalaryForWorker
                             new EmployeeRate(CheckValidation("Введите время работы в месяц (в часах)"), 
                                 CheckValidation("Введите месячный оклад"), 
                                 CheckValidation("Введите норму часов в месяц"));
-                            //TODO: Лучше использовать строковую интерполяцию - смотрится понятнее.
-                        Console.WriteLine("Зарплата за " + employeeRate.WorkTime +
-                                          " часов работы " + "c окладом "
-                                          + employeeRate.Salary + " и с нормой в "
-                                          + employeeRate.Rate +
-                                          " часов с учетом налога на доходы физических лиц:");
+                            //TODO: Лучше использовать строковую интерполяцию - смотрится понятнее. \ DONE
+                        Console.WriteLine($"Зарплата за {employeeRate.WorkTime}" +
+                                          $" часов работы   c окладом {employeeRate.Salary}" +
+                                          $" и с нормой в {employeeRate.Rate} часов " +
+                                          $"с учетом налога на доходы физических лиц:");
                         Console.WriteLine(employeeRate.Payroll);
 
                         Console.WriteLine("Нажмите любую кнопку для продолжения работы");
@@ -69,8 +68,8 @@ namespace SalaryForWorker
                             new EmployeeHourly(CheckValidation("Введите время работы в месяц (в часах)"),
                             CheckValidation("Введите оплату за час работы"));
 
-                        Console.WriteLine("Зарплата за " + employeeHourly.WorkTime +
-                                          " часов работы " + "c " + employeeHourly.CostPerHour + " за час работы:");
+                        Console.WriteLine($"Зарплата за {employeeHourly.WorkTime}" +
+                                          $" часов работы c {employeeHourly.CostPerHour} за час работы:");
                         Console.WriteLine(employeeHourly.Payroll);
 
                         Console.WriteLine("Нажмите любую кнопку для продолжения работы");

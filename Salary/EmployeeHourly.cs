@@ -28,17 +28,15 @@ namespace Salary
             get => _costPerHour;
             private set
             {
-                //TODO: Константой
-                int maxCostPerHour = 1400;
-                //TODO: Зачем эта переменная?
-                uint tempValue;
+                //TODO: Константой \ DONE
+                const int maxCostPerHour = 1400;
+                //TODO: Зачем эта переменная? \ DONE
                 while (value >= maxCostPerHour || value == 0)
                 {
                     Console.WriteLine(
                         "\nВведеное время работы больше допустимого значения (1400) и не равно нулю" +
                         "\n Введите корректное значение");
-                    tempValue = uint.Parse(Console.ReadLine());
-                    value = tempValue;
+                    value = uint.Parse(Console.ReadLine());
                 }
                 _costPerHour = value;
             }

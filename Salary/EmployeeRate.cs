@@ -31,17 +31,15 @@ namespace Salary
                 return _salary;
             }
             private set
-            {//TODO: Константой
-                int maxSalaryInMonth = 1000000;
-//TODO: Зачем эта переменная?
-                uint tempValue;
+            {//TODO: Константой \ DONE
+                const int maxSalaryInMonth = 1000000;
+//TODO: Зачем эта переменная? \ DONE
                 while (value >= maxSalaryInMonth || value == 0)
                 {
                     Console.WriteLine(
                         "\nВведеное время работы больше допустимого значения (1000000) и не равно нулю" +
                         "\n Введите корректное значение");
-                    tempValue = uint.Parse(Console.ReadLine());
-                    value = tempValue;
+                    value = uint.Parse(Console.ReadLine());
                 }
                 _salary = value;
             }
@@ -62,17 +60,15 @@ namespace Salary
                 return _rate;
             }
             private set
-            {//TODO: Константой
-                int maxHourInMonth = 372;
-//TODO: Зачем эта переменная?
-                uint tempValue;
+            {//TODO: Константой \ DONE
+                const int maxHourInMonth = 372;
+//TODO: Зачем эта переменная? \ DONE
                 while (value >= maxHourInMonth || value == 0)
                 {
                     Console.WriteLine(
                         "\nВведеная норма работы больше допустимого значения (372) и не равно нулю" +
                         "\n Введите корректное значение");
-                    tempValue = uint.Parse(Console.ReadLine());
-                    value = tempValue;
+                    value = uint.Parse(Console.ReadLine());
                 }
                 _rate = value;
             }
