@@ -26,20 +26,16 @@ namespace Salary
         /// </summary>
         public uint Salary
         {
-            get
-            {
-                return _salary;
-            }
+            get => _salary;
             private set
-            {//TODO: Константой \ DONE
+            {
                 const int maxSalaryInMonth = 1000000;
-//TODO: Зачем эта переменная? \ DONE
                 while (value >= maxSalaryInMonth || value == 0)
                 {
-                    Console.WriteLine(
-                        "\nВведенный оклад больше допустимого значения (1000000) и не равно нулю" +
+                    throw new Exception(
+                        "\nПараметры должны быть больше 0, время работы должно быть не больше 372, " +
+                        "оклад не больше 1000000 и норма работы не больше 372" +
                         "\n Введите корректное значение");
-                    value = uint.Parse(Console.ReadLine());
                 }
                 _salary = value;
             }
@@ -60,15 +56,14 @@ namespace Salary
                 return _rate;
             }
             private set
-            {//TODO: Константой \ DONE
+            {
                 const int maxHourInMonth = 372;
-//TODO: Зачем эта переменная? \ DONE
                 while (value >= maxHourInMonth || value == 0)
                 {
                     Console.WriteLine(
-                        "\nВведеная норма работы больше допустимого значения (372) и не равно нулю" +
+                        "\nПараметры должны быть больше 0, время работы должно быть не больше 372, " +
+                        "оклад не больше 1000000 и норма работы не больше 372" +
                         "\n Введите корректное значение");
-                    value = uint.Parse(Console.ReadLine());
                 }
                 _rate = value;
             }

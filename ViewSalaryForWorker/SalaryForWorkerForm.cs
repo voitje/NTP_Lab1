@@ -19,14 +19,17 @@ namespace ViewSalaryForWorker
         List<EmployeeBase> _employees;
         DataContractJsonSerializer _serializer;
 
+        /// <summary>
+        /// Конструктор формы
+        /// </summary>
         public SalaryForWorkerForm()
         {
             InitializeComponent();
             _employees = new List<EmployeeBase>();
             _addObjectForm = new AddObjectForm();
 
-            bindingSource1.DataSource = _employees;
-            dataGridView1.DataSource = bindingSource1;
+            bindingSource.DataSource = _employees;
+            dataGridView.DataSource = bindingSource;
 
             List<Type> knownTypeList = new List<Type>
             {
@@ -35,66 +38,96 @@ namespace ViewSalaryForWorker
             };
             _serializer = new DataContractJsonSerializer(typeof(List<EmployeeBase>), knownTypeList);
         }
-       
+
+        /// <summary>
+        /// Кнопка добавления объекта
+        /// </summary>
         private void AddObject_Click(object sender, EventArgs e)
         {
             _addObjectForm.ShowDialog();
             if (_addObjectForm.EmployeeBase != null)
             {
-                bindingSource1.Add(_addObjectForm.EmployeeBase);
+                bindingSource.Add(_addObjectForm.EmployeeBase);
             }
             
         }
 
+        /// <summary>
+        /// Кнопка удаления объекта
+        /// </summary>
         private void RemoveObject_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedCells.Count > 0)
+            if (dataGridView.SelectedCells.Count > 0)
             {
-                int index = dataGridView1.SelectedCells[0].RowIndex;
-                dataGridView1.Rows.RemoveAt(index);
+                int index = dataGridView.SelectedCells[0].RowIndex;
+                dataGridView.Rows.RemoveAt(index);
             }
         }
 
+        /// <summary>
+        /// Обработка событие при нажатие на "Открыть"
+        /// </summary>
         private void OpenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            openFileDialog1.AddExtension = true;
-            openFileDialog1.Filter = "Employee|*.fig";
-            DialogResult result = openFileDialog1.ShowDialog();
+            openFileDialog.AddExtension = true;
+            openFileDialog.Filter = "Employee|*.emp";
+            DialogResult result = openFileDialog.ShowDialog();
 
-            if (result == DialogResult.Cancel)
+            if (result != DialogResult.Cancel)
             {
-                return;
-            }
-            else
-            {
-                FileStream fileStream = new FileStream(openFileDialog1.FileName, FileMode.OpenOrCreate);
-                List<EmployeeBase> deserializeFigures = (List<EmployeeBase>)_serializer.ReadObject(fileStream);
+                FileStream fileStream = new FileStream(openFileDialog.FileName, FileMode.OpenOrCreate);
+                List<EmployeeBase> deserializeEmployee = (List<EmployeeBase>)_serializer.ReadObject(fileStream);
                 fileStream.Dispose();
 
-                bindingSource1.Clear();
+                bindingSource.Clear();
 
-                foreach (EmployeeBase salary in deserializeFigures)
+                foreach (EmployeeBase salary in deserializeEmployee)
                 {
-                    bindingSource1.Add(salary);
+                    bindingSource.Add(salary);
                 }
             }
         }
 
+        /// <summary>
+        /// Обработка событие при нажатие на "Сохранить"
+        /// </summary>
         private void SaveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            saveFileDialog1.AddExtension = true;
-            saveFileDialog1.Filter = "Employee|*.fig";
-            DialogResult result = saveFileDialog1.ShowDialog();
+            saveFileDialog.AddExtension = true;
+            saveFileDialog.Filter = "Employee|*.emp";
+            var result = saveFileDialog.ShowDialog();
 
-            if (result == DialogResult.Cancel)
+            if (result != DialogResult.Cancel)
             {
-                return;
-            }
-            else
-            {
-                FileStream fileStream = new FileStream(saveFileDialog1.FileName, FileMode.OpenOrCreate);
+                var fileStream = new FileStream(saveFileDialog.FileName, FileMode.OpenOrCreate);
                 _serializer.WriteObject(fileStream, _employees);
                 fileStream.Dispose();
+            }
+        }
+
+        /// <summary>
+        /// Кнопка добавления случайного объекта
+        /// </summary>
+        private void AddRandomObject_Click(object sender, EventArgs e)
+        {
+            var randomCase = new Random();
+            var random = new Random();
+            uint workTime = (uint) random.Next(1, 372);
+            switch (randomCase.Next(1, 3))
+            {
+                case 1:
+                {
+                    uint costPerHour = (uint) random.Next(1, 1400);
+                    bindingSource.Add(new EmployeeHourly(workTime, costPerHour));
+                    break;
+                }
+                case 2:
+                {
+                    uint rate = (uint) random.Next(1, 372);
+                    uint salary = (uint) random.Next(1, 1000000);
+                    bindingSource.Add(new EmployeeRate(workTime, salary, rate));
+                    break;
+                }
             }
         }
     }

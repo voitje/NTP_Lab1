@@ -28,15 +28,13 @@ namespace Salary
             get => _costPerHour;
             private set
             {
-                //TODO: Константой \ DONE
                 const int maxCostPerHour = 1400;
-                //TODO: Зачем эта переменная? \ DONE
                 while (value >= maxCostPerHour || value <= 0)
                 {
-                    Console.WriteLine(
-                        "\nВведеное время работы больше допустимого значения (1400) и не равно нулю" +
+                    throw new Exception(
+                        "\nПараметры должны быть больше 0 и время работы быть не больше 372, " +
+                        "а оплата в час не больше 1400" +
                         "\n Введите корректное значение");
-                    value = uint.Parse(Console.ReadLine());
                 }
                 _costPerHour = value;
             }
@@ -54,10 +52,7 @@ namespace Salary
         /// <summary>
         /// Подсчет зарплаты
         /// </summary>
-        public override uint Payroll
-        {
-            get => WorkTime  * CostPerHour;
-        }
+        public override uint Payroll => WorkTime  * CostPerHour;
 
         /// <summary>
         /// Тип зарплаты

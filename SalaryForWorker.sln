@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewSalaryForWorker", "View
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SalaryForWorkerView", "SalaryForWorkerView", "{4049C1A6-60B4-4F64-B31A-A909981A8A1B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject", "UnitTestProject\UnitTestProject.csproj", "{4EAE3D89-1078-4B3C-8FCE-6A2A31E383F4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{1DB0E270-6537-40B9-92A4-4BC69438B9F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1DB0E270-6537-40B9-92A4-4BC69438B9F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1DB0E270-6537-40B9-92A4-4BC69438B9F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EAE3D89-1078-4B3C-8FCE-6A2A31E383F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EAE3D89-1078-4B3C-8FCE-6A2A31E383F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EAE3D89-1078-4B3C-8FCE-6A2A31E383F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EAE3D89-1078-4B3C-8FCE-6A2A31E383F4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

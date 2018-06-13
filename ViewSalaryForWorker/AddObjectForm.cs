@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,46 +14,76 @@ using Salary;
 namespace ViewSalaryForWorker
 {
     public partial class AddObjectForm : Form
-    {   
+    {
+        /// <summary>
+        /// Конктруктор формы
+        /// </summary>
         public AddObjectForm()
         {
             InitializeComponent();
+            string descriptionHourly = GetDescription(TypeSalary.Hourly);
+            string descriptionRate = GetDescription(TypeSalary.Rate);
+            ComboBoxSalaryType.Items.Add(descriptionHourly);
+            ComboBoxSalaryType.Items.Add(descriptionRate);
+            ComboBoxSalaryType.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
+        /// <summary>
+        /// Перечисление сущностей
+        /// </summary>
+        public enum TypeSalary : byte
+        {
+            [Description("По часам")]
+            Hourly,
+            [Description("По окладу и ставке")]
+            Rate,
+        }
+
+        /// <summary>
+        /// Получить атрибут "Описание"
+        /// </summary>
+        public static string GetDescription(TypeSalary value)
+        {
+            FieldInfo fi = value.GetType().GetField(value.ToString());
+
+            DescriptionAttribute[] attributes =
+                (DescriptionAttribute[]) fi.GetCustomAttributes(
+                    typeof(DescriptionAttribute),
+                    false);
+
+            if (attributes != null &&
+                attributes.Length > 0)
+                return attributes[0].Description;
+            else
+                return value.ToString();
+        }
+
+        /// <summary>
+        /// Обработка элемента с выпадающим списком
+        /// </summary>
         private void SelectSalary_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string selectedState = comboBox1.SelectedItem.ToString();
+            string selectedState = ComboBoxSalaryType.SelectedItem.ToString();
             MessageBox.Show(selectedState);
-        }
-
-        private void InputConfirmation_Click(object sender, EventArgs e)
-        {
-            var salary = comboBox1.Text;
+            var salary = ComboBoxSalaryType.Text;
             if (salary == "По часам")
             {
-                label2.Text = "Оплата в час";
-                textBox3.Visible = false;
-                label3.Visible = false;
+                LabelSalary.Text = "Оплата в час";
+                TextBoxRate.Visible = false;
+                LabelRate.Visible = false;
             }
             else
             {
-                textBox3.Visible = true;
-                label3.Visible = true;
-                label2.Text = "Оклад (норма)";
+                TextBoxRate.Visible = true;
+                LabelRate.Visible = true;
+                LabelSalary.Text = "Оклад (норма)";
             }
 
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        /// <summary>
+        /// Кнопка отмены
+        /// </summary>
         private void CancelButton_Click(object sender, EventArgs e)
         {
             EmployeeBase = null;
@@ -61,22 +92,24 @@ namespace ViewSalaryForWorker
 
         public EmployeeBase EmployeeBase { get; private set; }
 
+        /// <summary>
+        /// Кнопка добавления объекта
+        /// </summary>
         private void AddObjectButton_Click(object sender, EventArgs e)
         {
-            if (label2.Text == "Оплата в час")
+            if (LabelSalary.Text == "Оплата в час")
             {
                 try
                 {
                     EmployeeHourly employeeHourly =
-                        new EmployeeHourly(Convert.ToUInt32(textBox1.Text),
-                            Convert.ToUInt32(textBox2.Text));
+                        new EmployeeHourly(Convert.ToUInt32(TextBoxWorkTime.Text),
+                            Convert.ToUInt32(TextBoxSalary.Text));
                     EmployeeBase = employeeHourly;
                 }
 
-                catch (Exception)
+                catch (Exception exception)
                 {
-                    MessageBox.Show("Параметры должны быть больше 0 и время работы быть не больше 372, " +
-                                    "а оплата в час не больше 1400", "Error",
+                    MessageBox.Show(exception.Message, "Error",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -85,19 +118,22 @@ namespace ViewSalaryForWorker
                 try
                 {
                     EmployeeRate employeeRate =
-                        new EmployeeRate(Convert.ToUInt32(textBox1.Text),
-                            Convert.ToUInt32(textBox2.Text),
-                            Convert.ToUInt32(textBox3.Text));
+                        new EmployeeRate(Convert.ToUInt32(TextBoxWorkTime.Text),
+                            Convert.ToUInt32(TextBoxSalary.Text),
+                            Convert.ToUInt32(TextBoxRate.Text));
                     EmployeeBase = employeeRate;
                 }
-                catch (Exception)
+                catch (Exception exception)
                 {
-                    MessageBox.Show("Параметры должны быть больше 0, время работы должно быть не больше 372, " +
-                                    "оклад не больше 1000000 и норма работы не больше 372", "Error",
+                    MessageBox.Show(exception.Message, "Error",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            this.Hide();
+
+            if (EmployeeBase != null)
+            {
+                this.Hide();
+            }
         }
     }
 

@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 
 namespace SalaryForWorker
 {
-    internal class Program
+    internal static class Program
     {
         /// <summary>
         /// Проверка на правильный ввод
@@ -51,7 +51,6 @@ namespace SalaryForWorker
                             new EmployeeRate(CheckValidation("Введите время работы в месяц (в часах)"), 
                                 CheckValidation("Введите месячный оклад"), 
                                 CheckValidation("Введите норму часов в месяц"));
-                            //TODO: Лучше использовать строковую интерполяцию - смотрится понятнее. \ DONE
                         Console.WriteLine($"Зарплата за {employeeRate.WorkTime}" +
                                           $" часов работы   c окладом {employeeRate.Salary}" +
                                           $" и с нормой в {employeeRate.Rate} часов " +

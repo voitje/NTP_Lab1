@@ -75,7 +75,9 @@
     <EmbeddedResource Include="SalaryForWorkerForm.resx">
       <DependentUpon>SalaryForWorkerForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\AddObjectForm.TypeSalary.datasource" />
     <None Include="Properties\DataSources\Salary.Employee.datasource" />
+    <None Include="Properties\DataSources\Salary.EmployeeBase.datasource" />
     <None Include="Properties\DataSources\Salary.EmployeeHourly.datasource" />
     <None Include="Properties\DataSources\Salary.EmployeeRate.datasource" />
     <None Include="Properties\Settings.settings">
