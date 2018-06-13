@@ -51,16 +51,13 @@ namespace Salary
         /// </summary>
         public  uint Rate
         {
-            get
-            {
-                return _rate;
-            }
+            get => _rate;
             private set
             {
                 const int maxHourInMonth = 372;
                 while (value >= maxHourInMonth || value == 0)
                 {
-                    Console.WriteLine(
+                    throw new Exception(
                         "\nПараметры должны быть больше 0, время работы должно быть не больше 372, " +
                         "оклад не больше 1000000 и норма работы не больше 372" +
                         "\n Введите корректное значение");

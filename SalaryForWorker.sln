@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewSalaryForWorker", "View
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SalaryForWorkerView", "SalaryForWorkerView", "{4049C1A6-60B4-4F64-B31A-A909981A8A1B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject", "UnitTestProject\UnitTestProject.csproj", "{4EAE3D89-1078-4B3C-8FCE-6A2A31E383F4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalaryForWorkerTests", "UnitTestProject\SalaryForWorkerTests.csproj", "{4EAE3D89-1078-4B3C-8FCE-6A2A31E383F4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
