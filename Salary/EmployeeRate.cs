@@ -37,7 +37,7 @@ namespace Salary
                 while (value >= maxSalaryInMonth || value == 0)
                 {
                     Console.WriteLine(
-                        "\nВведеное время работы больше допустимого значения (1000000) и не равно нулю" +
+                        "\nВведенный оклад больше допустимого значения (1000000) и не равно нулю" +
                         "\n Введите корректное значение");
                     value = uint.Parse(Console.ReadLine());
                 }

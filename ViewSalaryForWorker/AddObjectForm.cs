@@ -60,23 +60,42 @@ namespace ViewSalaryForWorker
         }
 
         public EmployeeBase EmployeeBase { get; private set; }
+
         private void AddObjectButton_Click(object sender, EventArgs e)
         {
             if (label2.Text == "Оплата в час")
             {
-                EmployeeHourly employeeHourly = 
-                    new EmployeeHourly(Convert.ToUInt32(textBox1.Text), 
-                        Convert.ToUInt32(textBox2.Text));
-                EmployeeBase = employeeHourly;
+                try
+                {
+                    EmployeeHourly employeeHourly =
+                        new EmployeeHourly(Convert.ToUInt32(textBox1.Text),
+                            Convert.ToUInt32(textBox2.Text));
+                    EmployeeBase = employeeHourly;
+                }
 
+                catch (Exception)
+                {
+                    MessageBox.Show("Параметры должны быть больше 0 и время работы быть не больше 372, " +
+                                    "а оплата в час не больше 1400", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
-                EmployeeRate employeeRate = 
-                    new EmployeeRate(Convert.ToUInt32(textBox1.Text), 
-                        Convert.ToUInt32(textBox2.Text),
-                        Convert.ToUInt32(textBox3.Text));
-                EmployeeBase = employeeRate;
+                try
+                {
+                    EmployeeRate employeeRate =
+                        new EmployeeRate(Convert.ToUInt32(textBox1.Text),
+                            Convert.ToUInt32(textBox2.Text),
+                            Convert.ToUInt32(textBox3.Text));
+                    EmployeeBase = employeeRate;
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Параметры должны быть больше 0, время работы должно быть не больше 372, " +
+                                    "оклад не больше 1000000 и норма работы не больше 372", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             this.Hide();
         }

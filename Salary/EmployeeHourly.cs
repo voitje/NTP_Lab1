@@ -31,7 +31,7 @@ namespace Salary
                 //TODO: Константой \ DONE
                 const int maxCostPerHour = 1400;
                 //TODO: Зачем эта переменная? \ DONE
-                while (value >= maxCostPerHour || value == 0)
+                while (value >= maxCostPerHour || value <= 0)
                 {
                     Console.WriteLine(
                         "\nВведеное время работы больше допустимого значения (1400) и не равно нулю" +
