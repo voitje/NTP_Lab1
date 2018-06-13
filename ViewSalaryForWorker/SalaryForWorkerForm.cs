@@ -13,6 +13,7 @@ using Salary;
 
 namespace ViewSalaryForWorker
 {
+    //TODO: Везде ниже XML
     public partial class SalaryForWorkerForm : Form
     {
         AddObjectForm _addObjectForm;
@@ -70,11 +71,13 @@ namespace ViewSalaryForWorker
         private void OpenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             openFileDialog.AddExtension = true;
+            //TODO: Расширение вынести
             openFileDialog.Filter = "Employee|*.emp";
             DialogResult result = openFileDialog.ShowDialog();
 
             if (result != DialogResult.Cancel)
             {
+                //TODO: RSDN - по длинне строк
                 FileStream fileStream = new FileStream(openFileDialog.FileName, FileMode.OpenOrCreate);
                 List<EmployeeBase> deserializeEmployee = (List<EmployeeBase>)_serializer.ReadObject(fileStream);
                 fileStream.Dispose();

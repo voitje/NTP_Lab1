@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using Salary;
@@ -28,6 +22,7 @@ namespace ViewSalaryForWorker
             ComboBoxSalaryType.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
+        //TODO: Должно быть в отдельном CS файле
         /// <summary>
         /// Перечисление сущностей
         /// </summary>
@@ -51,6 +46,7 @@ namespace ViewSalaryForWorker
                     typeof(DescriptionAttribute),
                     false);
 
+            //TODO: Все операции под if - в скобочки
             if (attributes != null &&
                 attributes.Length > 0)
                 return attributes[0].Description;
@@ -66,6 +62,8 @@ namespace ViewSalaryForWorker
             string selectedState = ComboBoxSalaryType.SelectedItem.ToString();
             MessageBox.Show(selectedState);
             var salary = ComboBoxSalaryType.Text;
+            //TODO: Тут правильнее через switch-case, т.к. потенциально количество вариантов расчёта может расшириться
+            //TODO: А текущее условие предполагает только 2 состояния
             if (salary == "По часам")
             {
                 LabelSalary.Text = "Оплата в час";
@@ -89,7 +87,7 @@ namespace ViewSalaryForWorker
             EmployeeBase = null;
             this.Close();
         }
-
+        //XML
         public EmployeeBase EmployeeBase { get; private set; }
 
         /// <summary>

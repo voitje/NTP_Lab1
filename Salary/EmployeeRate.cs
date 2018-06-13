@@ -1,11 +1,5 @@
 ﻿using System;
-using System.CodeDom;
-using System.Collections.Generic;
-using System.Dynamic;
-using System.Linq;
 using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Salary
 {
@@ -84,7 +78,8 @@ namespace Salary
             get
             {
                 if (WorkTime == 0)
-                {
+                {//TODO: Странное поведение - тут программа должна сказать - не вводи такую фигню!
+                    //TODO: Но вроде бы в базовом есть такая проверка - тогда не понятно - зачем тут.
                     return 0;
                 }
                 return (uint) ((decimal)_salary / _rate * WorkTime);
@@ -93,9 +88,6 @@ namespace Salary
         /// <summary>
         /// Тип зарплаты
         /// </summary>
-        public override string Type
-        {
-            get { return "По ставке и окладу"; }
-        }
+        public override string Type => "По ставке и окладу";
     }
 }
