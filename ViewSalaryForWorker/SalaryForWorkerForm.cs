@@ -9,10 +9,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.Serialization.Json;
+using System.Windows.Forms.VisualStyles;
 using Salary;
 
 namespace ViewSalaryForWorker
 {
+    //TODO: Везде ниже XML \ DONE
+    /// <summary>
+    /// Главная форма SalaryForWorker
+    /// </summary>
     public partial class SalaryForWorkerForm : Form
     {
         AddObjectForm _addObjectForm;
@@ -70,13 +75,18 @@ namespace ViewSalaryForWorker
         private void OpenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             openFileDialog.AddExtension = true;
-            openFileDialog.Filter = "Employee|*.emp";
+            //TODO: Расширение вынести \ DONE
+            const string fileName = "Employee|*.emp";
+            openFileDialog.Filter = fileName;
             DialogResult result = openFileDialog.ShowDialog();
 
             if (result != DialogResult.Cancel)
             {
-                FileStream fileStream = new FileStream(openFileDialog.FileName, FileMode.OpenOrCreate);
-                List<EmployeeBase> deserializeEmployee = (List<EmployeeBase>)_serializer.ReadObject(fileStream);
+                //TODO: RSDN - по длинне строк \ DONE
+                FileStream fileStream = 
+                    new FileStream(openFileDialog.FileName, FileMode.OpenOrCreate);
+                List<EmployeeBase> deserializeEmployee =
+                    (List<EmployeeBase>)_serializer.ReadObject(fileStream);
                 fileStream.Dispose();
 
                 bindingSource.Clear();
@@ -94,12 +104,14 @@ namespace ViewSalaryForWorker
         private void SaveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             saveFileDialog.AddExtension = true;
-            saveFileDialog.Filter = "Employee|*.emp";
+            const string fileName = "Employee|*.emp";
+            saveFileDialog.Filter = fileName;
             var result = saveFileDialog.ShowDialog();
 
             if (result != DialogResult.Cancel)
             {
-                var fileStream = new FileStream(saveFileDialog.FileName, FileMode.OpenOrCreate);
+                var fileStream = 
+                    new FileStream(saveFileDialog.FileName, FileMode.OpenOrCreate);
                 _serializer.WriteObject(fileStream, _employees);
                 fileStream.Dispose();
             }

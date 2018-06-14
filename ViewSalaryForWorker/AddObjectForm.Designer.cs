@@ -141,7 +141,7 @@
             // 
             // typeSalaryBindingSource
             // 
-            this.typeSalaryBindingSource.DataSource = typeof(ViewSalaryForWorker.AddObjectForm.TypeSalary);
+            //this.typeSalaryBindingSource.DataSource = typeof(ViewSalaryForWorker.AddObjectForm.TypeSalary);
             // 
             // employeeRateControl1
             // 

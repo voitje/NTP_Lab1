@@ -72,6 +72,7 @@
     <Compile Include="EmployeeRateControl.Designer.cs">
       <DependentUpon>EmployeeRateControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="TypeSalary.cs" />
     <EmbeddedResource Include="AddObjectForm.resx">
       <DependentUpon>AddObjectForm.cs</DependentUpon>
     </EmbeddedResource>
