@@ -29,7 +29,7 @@ namespace Salary
             private set
             {
                 const int maxCostPerHour = 1400;
-                while (value >= maxCostPerHour || value <= 0)
+                while (value > maxCostPerHour || value <= 0)
                 {
                     throw new Exception(
                         "\nПараметры должны быть больше 0 и время работы быть не больше 372, " +

@@ -26,6 +26,8 @@ namespace ViewSalaryForWorker
             ComboBoxSalaryType.Items.Add(descriptionHourly);
             ComboBoxSalaryType.Items.Add(descriptionRate);
             ComboBoxSalaryType.DropDownStyle = ComboBoxStyle.DropDownList;
+            employeeRateControl1.Hide();
+            employeeHourlyControl1.Hide();
         }
 
         /// <summary>
@@ -46,16 +48,17 @@ namespace ViewSalaryForWorker
         {
             FieldInfo fi = value.GetType().GetField(value.ToString());
 
-            DescriptionAttribute[] attributes =
-                (DescriptionAttribute[]) fi.GetCustomAttributes(
-                    typeof(DescriptionAttribute),
-                    false);
+            DescriptionAttribute[] attributes = 
+                (DescriptionAttribute[]) fi.GetCustomAttributes(typeof(DescriptionAttribute), false);
 
-            if (attributes != null &&
-                attributes.Length > 0)
+            if (attributes != null && attributes.Length > 0)
+            {
                 return attributes[0].Description;
+            }
             else
+            {
                 return value.ToString();
+            }
         }
 
         /// <summary>
@@ -71,14 +74,17 @@ namespace ViewSalaryForWorker
                 LabelSalary.Text = "Оплата в час";
                 TextBoxRate.Visible = false;
                 LabelRate.Visible = false;
+                employeeRateControl1.Hide();
+                employeeHourlyControl1.Show();
             }
             else
             {
                 TextBoxRate.Visible = true;
                 LabelRate.Visible = true;
                 LabelSalary.Text = "Оклад (норма)";
+                employeeRateControl1.Show();
+                employeeHourlyControl1.Hide();
             }
-
         }
 
         /// <summary>
@@ -101,14 +107,20 @@ namespace ViewSalaryForWorker
             {
                 try
                 {
+                    //EmployeeHourly employeeHourly =
+                    //    new EmployeeRate(Convert.ToUInt32(TextBoxWorkTime.Text),
+                    //        Convert.ToUInt32(TextBoxSalary.Text),
+                    //EmployeeBase = employeeHourly;
+                    employeeHourlyControl1.Show();
                     EmployeeHourly employeeHourly =
-                        new EmployeeHourly(Convert.ToUInt32(TextBoxWorkTime.Text),
-                            Convert.ToUInt32(TextBoxSalary.Text));
+                        new EmployeeHourly(employeeHourlyControl1.WorkTime,
+                            employeeHourlyControl1.CostPerHour);
                     EmployeeBase = employeeHourly;
                 }
 
                 catch (Exception exception)
                 {
+                    EmployeeBase = null;
                     MessageBox.Show(exception.Message, "Error",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -117,14 +129,21 @@ namespace ViewSalaryForWorker
             {
                 try
                 {
+                    //EmployeeRate employeeRate =
+                    //    new EmployeeRate(Convert.ToUInt32(TextBoxWorkTime.Text),
+                    //        Convert.ToUInt32(TextBoxSalary.Text),
+                    //        Convert.ToUInt32(TextBoxRate.Text));
+                    //EmployeeBase = employeeRate;
+                    employeeRateControl1.Show();
                     EmployeeRate employeeRate =
-                        new EmployeeRate(Convert.ToUInt32(TextBoxWorkTime.Text),
-                            Convert.ToUInt32(TextBoxSalary.Text),
-                            Convert.ToUInt32(TextBoxRate.Text));
+                        new EmployeeRate(employeeRateControl1.WorkTime,
+                            employeeRateControl1.Salary,
+                            employeeRateControl1.Rate);
                     EmployeeBase = employeeRate;
                 }
                 catch (Exception exception)
                 {
+                    EmployeeBase = null;
                     MessageBox.Show(exception.Message, "Error",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
