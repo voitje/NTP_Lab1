@@ -30,7 +30,7 @@ namespace Salary
                 const int maxHourInMonth = 372;
                 while (value > maxHourInMonth || value == 0)
                 {
-                    throw new Exception(
+                    throw new ArgumentException(
                         "\nПараметры должны быть больше 0 и время работы быть не больше 372, " +
                         "\n Введите корректное значение");
                 }

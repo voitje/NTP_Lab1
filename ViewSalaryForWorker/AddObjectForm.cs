@@ -16,17 +16,15 @@ namespace ViewSalaryForWorker
         {
             InitializeComponent();
             string descriptionHourly = 
-                TypeSalaryEnum.GetDescription(TypeSalaryEnum.TypeSalary.Hourly);
+                ToolsForTypeSalaryEnum.GetDescription(TypeSalary.Hourly);
             string descriptionRate = 
-                TypeSalaryEnum.GetDescription(TypeSalaryEnum.TypeSalary.Rate);
+                ToolsForTypeSalaryEnum.GetDescription(TypeSalary.Rate);
             ComboBoxSalaryType.Items.Add(descriptionHourly);
             ComboBoxSalaryType.Items.Add(descriptionRate);
             ComboBoxSalaryType.DropDownStyle = ComboBoxStyle.DropDownList;
-            employeeRateControl1.Hide();
-            employeeHourlyControl1.Hide();
+            employeeRateControl.Hide();
+            employeeHourlyControl.Hide();
         }
-
-        //TODO: Должно быть в отдельном CS файле \ DONE
 
         /// <summary>
         /// Обработка элемента с выпадающим списком
@@ -36,8 +34,6 @@ namespace ViewSalaryForWorker
             string selectedState = ComboBoxSalaryType.SelectedItem.ToString();
             MessageBox.Show(selectedState);
             var salary = ComboBoxSalaryType.Text;
-            //TODO: Тут правильнее через switch-case, т.к. потенциально количество вариантов расчёта может расшириться \ DONE
-            //TODO: А текущее условие предполагает только 2 состояния \ DONE
             switch (salary)
             {
                 case "По часам":
@@ -45,8 +41,8 @@ namespace ViewSalaryForWorker
                     LabelSalary.Text = "Оплата в час";
                     TextBoxRate.Visible = false;
                     LabelRate.Visible = false;
-                    employeeRateControl1.Hide();
-                    //employeeHourlyControl1.Show();
+                    employeeRateControl.Hide();
+                    employeeHourlyControl.Show();
                     break;
                 }
                 case "По окладу и ставке":
@@ -54,29 +50,11 @@ namespace ViewSalaryForWorker
                     TextBoxRate.Visible = true;
                     LabelRate.Visible = true;
                     LabelSalary.Text = "Оклад (норма)";
-                    //employeeRateControl1.Show();
-                    employeeHourlyControl1.Hide();
+                    employeeRateControl.Show();
+                    employeeHourlyControl.Hide();
                     break;
-
                 }
             }
-
-            //if (salary == "По часам")
-            //{
-            //    LabelSalary.Text = "Оплата в час";
-            //    TextBoxRate.Visible = false;
-            //    LabelRate.Visible = false;
-            //    employeeRateControl1.Hide();
-            //    employeeHourlyControl1.Show();
-            //}
-            //else
-            //{
-            //    TextBoxRate.Visible = true;
-            //    LabelRate.Visible = true;
-            //    LabelSalary.Text = "Оклад (норма)";
-            //    employeeRateControl1.Show();
-            //    employeeHourlyControl1.Hide();
-            //}
         }
 
         /// <summary>
@@ -87,7 +65,10 @@ namespace ViewSalaryForWorker
             EmployeeBase = null;
             this.Close();
         }
-        //XML
+
+        /// <summary>
+        /// Свойство базового класса
+        /// </summary>
         public EmployeeBase EmployeeBase { get; private set; }
 
         /// <summary>
@@ -99,17 +80,7 @@ namespace ViewSalaryForWorker
             {
                 try
                 {
-                    EmployeeHourly employeeHourly =
-                        new EmployeeHourly(Convert.ToUInt32(TextBoxWorkTime.Text),
-                            Convert.ToUInt32(TextBoxSalary.Text));
-                    EmployeeBase = employeeHourly;
-
-                    //ДЛЯ ПЯТОЙ
-                    //employeeHourlyControl1.Show();
-                    //EmployeeHourly employeeHourly =
-                    //    new EmployeeHourly(employeeHourlyControl1.WorkTime,
-                    //        employeeHourlyControl1.CostPerHour);
-                    //EmployeeBase = employeeHourly;
+                    EmployeeBase = employeeHourlyControl.EmployeeBase;
                 }
 
                 catch (Exception exception)
@@ -123,19 +94,7 @@ namespace ViewSalaryForWorker
             {
                 try
                 {
-                    EmployeeRate employeeRate =
-                        new EmployeeRate(Convert.ToUInt32(TextBoxWorkTime.Text),
-                            Convert.ToUInt32(TextBoxSalary.Text),
-                            Convert.ToUInt32(TextBoxRate.Text));
-                    EmployeeBase = employeeRate;
-
-                    //ДЛЯ ПЯТОЙ
-                    //employeeRateControl1.Show();
-                    //EmployeeRate employeeRate =
-                    //    new EmployeeRate(employeeRateControl1.WorkTime,
-                    //        employeeRateControl1.Salary,
-                    //        employeeRateControl1.Rate);
-                    //EmployeeBase = employeeRate;
+                    EmployeeBase = employeeRateControl.EmployeeBase;
                 }
                 catch (Exception exception)
                 {
@@ -144,7 +103,9 @@ namespace ViewSalaryForWorker
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-
+            //TODO:При отладки в этом месте прекращает отладку и пишет в Выводе:
+            //Process is terminated due to StackOverflowException.
+            //Программа "[15540] ViewSalaryForWorker.exe" завершилась с кодом - 2147023895(0x800703e9).
             if (EmployeeBase != null)
             {
                 this.Hide();

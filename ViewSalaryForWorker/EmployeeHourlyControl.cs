@@ -18,25 +18,27 @@ namespace ViewSalaryForWorker
             InitializeComponent();
         }
 
-        public EmployeeHourly Employee
+        public EmployeeBase EmployeeBase
         {
             set
             {
-                if (value is EmployeeHourly employeeRate)
+                WorkTime = value.WorkTime;
+                if (value is EmployeeHourly employeeHourly)
                 {
-                    textBox1.Text = employeeRate.WorkTime.ToString();
-                    textBox2.Text = employeeRate.CostPerHour.ToString();
+                    CostPerHour = employeeHourly.CostPerHour;
                 }
             }
+            get => new EmployeeHourly(WorkTime, CostPerHour);
         }
-
-        public uint WorkTime
+        //TODO:Все ниже private \ DONE
+        //TODO:ArgumentEX для все Ex в библиотеки \ DONE
+        private uint WorkTime
         {
             get => uint.Parse(textBox1.Text);
             set => textBox1.Text = value.ToString();
         }
 
-        public uint CostPerHour
+        private uint CostPerHour
         {
             get => uint.Parse(textBox2.Text);
             set => textBox2.Text = value.ToString();

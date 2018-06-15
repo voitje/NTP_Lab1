@@ -20,9 +20,25 @@ namespace ViewSalaryForWorker
     /// </summary>
     public partial class SalaryForWorkerForm : Form
     {
-        AddObjectForm _addObjectForm;
-        List<EmployeeBase> _employees;
-        DataContractJsonSerializer _serializer;
+        /// <summary>
+        /// Объект второй формы
+        /// </summary>
+        private AddObjectForm _addObjectForm;
+
+        /// <summary>
+        /// Список зарплат
+        /// </summary>
+        private List<EmployeeBase> _employees;
+
+        /// <summary>
+        /// Сериализация
+        /// </summary>
+        private DataContractJsonSerializer _serializer;
+
+        /// <summary>
+        /// Имя файла
+        /// </summary>
+        private const string fileName = "Employee|*.emp";
 
         /// <summary>
         /// Конструктор формы
@@ -35,13 +51,27 @@ namespace ViewSalaryForWorker
 
             bindingSource.DataSource = _employees;
             dataGridView.DataSource = bindingSource;
-
+            //dataGridView_CellClick(this, new DataGridViewCellEventArgs(0, 0));
             List<Type> knownTypeList = new List<Type>
             {
                 typeof(EmployeeHourly),
                 typeof(EmployeeRate)
             };
             _serializer = new DataContractJsonSerializer(typeof(List<EmployeeBase>), knownTypeList);
+            DisableControls();
+        }
+
+
+        private void DisableControls()
+        {
+            employeeHourlyControl1.Visible = false;
+            //employeeRateContorl1.Visible = false;
+
+
+            employeeHourlyControl1.ReadOnly = true;
+            //employeeRateContorl1.ReadOnly = false;
+
+
         }
 
         /// <summary>
@@ -54,7 +84,7 @@ namespace ViewSalaryForWorker
             {
                 bindingSource.Add(_addObjectForm.EmployeeBase);
             }
-            
+
         }
 
         /// <summary>
@@ -74,27 +104,35 @@ namespace ViewSalaryForWorker
         /// </summary>
         private void OpenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            openFileDialog.AddExtension = true;
-            //TODO: Расширение вынести \ DONE
-            const string fileName = "Employee|*.emp";
-            openFileDialog.Filter = fileName;
-            DialogResult result = openFileDialog.ShowDialog();
-
-            if (result != DialogResult.Cancel)
+            try
             {
-                //TODO: RSDN - по длинне строк \ DONE
-                FileStream fileStream = 
-                    new FileStream(openFileDialog.FileName, FileMode.OpenOrCreate);
-                List<EmployeeBase> deserializeEmployee =
-                    (List<EmployeeBase>)_serializer.ReadObject(fileStream);
-                fileStream.Dispose();
+                openFileDialog.AddExtension = true;
+                //TODO: Расширение вынести \ DONE
+                openFileDialog.Filter = fileName;
+                DialogResult result = openFileDialog.ShowDialog();
 
-                bindingSource.Clear();
-
-                foreach (EmployeeBase salary in deserializeEmployee)
+                if (result != DialogResult.Cancel)
                 {
-                    bindingSource.Add(salary);
+                    FileStream fileStream =
+                        new FileStream(openFileDialog.FileName, FileMode.OpenOrCreate);
+                    List<EmployeeBase> deserializeEmployee =
+                        (List<EmployeeBase>) _serializer.ReadObject(fileStream);
+                    fileStream.Dispose();
+
+                    bindingSource.Clear();
+
+                    foreach (EmployeeBase salary in deserializeEmployee)
+                    {
+                        bindingSource.Add(salary);
+                    }
                 }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("Неверное содержание файла, проверьте правильность данных в файле!\n\n" +
+                                exception.Message, "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ;
             }
         }
 
@@ -103,17 +141,25 @@ namespace ViewSalaryForWorker
         /// </summary>
         private void SaveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            saveFileDialog.AddExtension = true;
-            const string fileName = "Employee|*.emp";
-            saveFileDialog.Filter = fileName;
-            var result = saveFileDialog.ShowDialog();
-
-            if (result != DialogResult.Cancel)
+            try
             {
-                var fileStream = 
-                    new FileStream(saveFileDialog.FileName, FileMode.OpenOrCreate);
-                _serializer.WriteObject(fileStream, _employees);
-                fileStream.Dispose();
+                saveFileDialog.AddExtension = true;
+                saveFileDialog.Filter = fileName;
+                var result = saveFileDialog.ShowDialog();
+
+                if (result != DialogResult.Cancel)
+                {
+                    var fileStream =
+                        new FileStream(saveFileDialog.FileName, FileMode.OpenOrCreate);
+                    _serializer.WriteObject(fileStream, _employees);
+                    fileStream.Dispose();
+                }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("Неверное содержание файла, проверьте правильность данных в файле!\n\n" +
+                                exception.Message, "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -142,5 +188,30 @@ namespace ViewSalaryForWorker
                 }
             }
         }
+
+        /// <summary>
+        ///  Выводит информацию при клике на нее в таблице
+        /// </summary>
+
+        private void dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var currentEmployee = _employees[dataGridView.CurrentRow.Index];
+            DisableControls();
+
+            if (currentEmployee is EmployeeHourly employeeHourly)
+            {
+                employeeHourlyControl1.Visible = true;
+
+                employeeHourlyControl1.EmployeeBase = employeeHourly;
+            }
+
+            //TODO:Для контроля EmployeeRate
+            //else if (currentEmployee is EmployeeRate employeeRate)
+            //{
+            //    employeeHourlyControl1.Visible = true;
+
+            //    employeeHourlyControl1.EmployeeBase = employeeRate;
+        }
     }
 }
+

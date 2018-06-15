@@ -41,8 +41,8 @@
             this.ButtonAddObject = new System.Windows.Forms.Button();
             this.ButtonCancel = new System.Windows.Forms.Button();
             this.typeSalaryBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.employeeRateControl1 = new ViewSalaryForWorker.EmployeeRateControl();
-            this.employeeHourlyControl1 = new ViewSalaryForWorker.EmployeeHourlyControl();
+            this.employeeRateControl = new ViewSalaryForWorker.EmployeeRateControl();
+            this.employeeHourlyControl = new ViewSalaryForWorker.EmployeeHourlyControl();
             ((System.ComponentModel.ISupportInitialize)(this.employeeBaseBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.typeSalaryBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -143,27 +143,27 @@
             // 
             //this.typeSalaryBindingSource.DataSource = typeof(ViewSalaryForWorker.AddObjectForm.TypeSalary);
             // 
-            // employeeRateControl1
+            // employeeRateControl
             // 
-            this.employeeRateControl1.Location = new System.Drawing.Point(-2, 42);
-            this.employeeRateControl1.Name = "employeeRateControl1";
-            this.employeeRateControl1.Size = new System.Drawing.Size(451, 211);
-            this.employeeRateControl1.TabIndex = 11;
+            this.employeeRateControl.Location = new System.Drawing.Point(-2, 42);
+            this.employeeRateControl.Name = "employeeRateControl";
+            this.employeeRateControl.Size = new System.Drawing.Size(451, 211);
+            this.employeeRateControl.TabIndex = 11;
             // 
-            // employeeHourlyControl1
+            // employeeHourlyControl
             // 
-            this.employeeHourlyControl1.Location = new System.Drawing.Point(-2, 35);
-            this.employeeHourlyControl1.Name = "employeeHourlyControl1";
-            this.employeeHourlyControl1.Size = new System.Drawing.Size(434, 231);
-            this.employeeHourlyControl1.TabIndex = 12;
+            this.employeeHourlyControl.Location = new System.Drawing.Point(-2, 35);
+            this.employeeHourlyControl.Name = "employeeHourlyControl";
+            this.employeeHourlyControl.Size = new System.Drawing.Size(434, 231);
+            this.employeeHourlyControl.TabIndex = 12;
             // 
             // AddObjectForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(372, 306);
-            this.Controls.Add(this.employeeHourlyControl1);
-            this.Controls.Add(this.employeeRateControl1);
+            this.Controls.Add(this.employeeHourlyControl);
+            this.Controls.Add(this.employeeRateControl);
             this.Controls.Add(this.ButtonCancel);
             this.Controls.Add(this.ButtonAddObject);
             this.Controls.Add(this.LabelWorkTime);
@@ -198,7 +198,7 @@
         private System.Windows.Forms.Button ButtonCancel;
         private System.Windows.Forms.BindingSource employeeBaseBindingSource;
         private System.Windows.Forms.BindingSource typeSalaryBindingSource;
-        private EmployeeRateControl employeeRateControl1;
-        private EmployeeHourlyControl employeeHourlyControl1;
+        private EmployeeRateControl employeeRateControl;
+        private EmployeeHourlyControl employeeHourlyControl;
     }
 }

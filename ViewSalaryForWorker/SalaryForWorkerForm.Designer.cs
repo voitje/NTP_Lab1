@@ -33,8 +33,6 @@
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Salary = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.workTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ButtonAddObjectNewForm = new System.Windows.Forms.Button();
             this.ButtonRemoveObject = new System.Windows.Forms.Button();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
@@ -44,10 +42,13 @@
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.ButtomAddRandomObject = new System.Windows.Forms.Button();
+            this.workTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.employeeHourlyControl1 = new ViewSalaryForWorker.EmployeeHourlyControl();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             this.menuStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -74,6 +75,7 @@
             this.dataGridView.RowTemplate.Height = 24;
             this.dataGridView.Size = new System.Drawing.Size(522, 232);
             this.dataGridView.TabIndex = 0;
+            this.dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellClick);
             // 
             // Type
             // 
@@ -89,17 +91,6 @@
             this.Salary.HeaderText = "Зарплата";
             this.Salary.Name = "Salary";
             this.Salary.ReadOnly = true;
-            // 
-            // workTimeDataGridViewTextBoxColumn
-            // 
-            this.workTimeDataGridViewTextBoxColumn.DataPropertyName = "WorkTime";
-            this.workTimeDataGridViewTextBoxColumn.HeaderText = "Время работы";
-            this.workTimeDataGridViewTextBoxColumn.Name = "workTimeDataGridViewTextBoxColumn";
-            this.workTimeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // bindingSource
-            // 
-            this.bindingSource.DataSource = typeof(Salary.EmployeeRate);
             // 
             // ButtonAddObjectNewForm
             // 
@@ -169,11 +160,30 @@
             this.ButtomAddRandomObject.UseVisualStyleBackColor = true;
             this.ButtomAddRandomObject.Click += new System.EventHandler(this.AddRandomObject_Click);
             // 
+            // workTimeDataGridViewTextBoxColumn
+            // 
+            this.workTimeDataGridViewTextBoxColumn.DataPropertyName = "WorkTime";
+            this.workTimeDataGridViewTextBoxColumn.HeaderText = "Время работы";
+            this.workTimeDataGridViewTextBoxColumn.Name = "workTimeDataGridViewTextBoxColumn";
+            this.workTimeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // bindingSource
+            // 
+            this.bindingSource.DataSource = typeof(Salary.EmployeeRate);
+            // 
+            // employeeHourlyControl1
+            // 
+            this.employeeHourlyControl1.Location = new System.Drawing.Point(22, 346);
+            this.employeeHourlyControl1.Name = "employeeHourlyControl1";
+            this.employeeHourlyControl1.Size = new System.Drawing.Size(434, 160);
+            this.employeeHourlyControl1.TabIndex = 5;
+            // 
             // SalaryForWorkerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(562, 352);
+            this.ClientSize = new System.Drawing.Size(562, 525);
+            this.Controls.Add(this.employeeHourlyControl1);
             this.Controls.Add(this.ButtomAddRandomObject);
             this.Controls.Add(this.ButtonRemoveObject);
             this.Controls.Add(this.ButtonAddObjectNewForm);
@@ -185,9 +195,9 @@
             this.Text = "Расчет зарплаты";
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -210,6 +220,7 @@
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.Button ButtomAddRandomObject;
+        private EmployeeHourlyControl employeeHourlyControl1;
     }
 }
 

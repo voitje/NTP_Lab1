@@ -13,6 +13,62 @@ namespace UnitTestProject
     public class EmployeeHourlyTests
     {
         //TODO: Тестировать нужно ВСЮ публичную часть класса, а вы тестируете только Payroll
+
+        /// <summary>
+        /// Позитивное тестирование поля Type
+        /// </summary>
+        [Test]
+        [TestCase((uint)150, (uint)1000, ExpectedResult = "Почасовая",
+            TestName = "Позитивное тестирование Type")]
+        [TestCase((uint)180, (uint)1000, ExpectedResult = "Почасовая",
+            TestName = "Позитивное тестирование Type")]
+        public string EmployeeHourlyTypePositiveTest(uint workTime, uint costPerHour)
+        {
+            EmployeeHourly employeeRate = new EmployeeHourly(workTime, costPerHour);
+            return employeeRate.Type;
+        }
+
+        /// <summary>
+        /// Позитивное тестирование поля WorkTime
+        /// </summary>
+        [Test]
+        [TestCase((uint)1, (uint)1000, ExpectedResult = (uint)1,
+            TestName = "Позитивное тестирование WorkTime при 1")]
+        [TestCase((uint)372, (uint)1000, ExpectedResult = (uint)372,
+            TestName = "Позитивное тестирование WorkTime при 372")]
+        public uint EmployeeHourlyWorkTimePositiveTest(uint workTime, uint costPerHour)
+        {
+            EmployeeHourly employeeRate = new EmployeeHourly(workTime, costPerHour);
+            return employeeRate.WorkTime;
+        }
+
+        /// <summary>
+        /// Позитивное тестирование поля CostPerHour
+        /// </summary>
+        [Test]
+        [TestCase((uint)180, (uint)1, ExpectedResult = (uint)1,
+            TestName = "Позитивное тестирование CostPerHour при 1")]
+        [TestCase((uint)180, (uint)1400, ExpectedResult = (uint)1400,
+            TestName = "Позитивное тестирование CostPerHour при 1400")]
+        public uint EmployeeHourlyCostPerHourPositiveTest(uint workTime, uint costPerHour)
+        {
+            EmployeeHourly employeeRate = new EmployeeHourly(workTime, costPerHour);
+            return employeeRate.CostPerHour;
+        }
+
+        /// <summary>
+        /// Отрицательное тестирование поля CostPerHour
+        /// </summary>
+        [Test]
+        [TestCase((uint)180, (uint)0,
+            TestName = "Отрицательное тестирование CostPerHour при 0")]
+        [TestCase((uint)180, (uint)1401,
+            TestName = "Отрицательное тестирование CostPerHour при 1401")]
+        public void EmployeeHourlyCostPerHourNegativeTest(uint workTime, uint costPerHour)
+        {
+            Assert.That(() => new EmployeeHourly(workTime, costPerHour), Throws.TypeOf<ArgumentException>());
+        }
+
         /// <summary>
         /// Позитивное тестирование свойства Payroll и конструктора у класса EmployeeHourly
         /// </summary>
@@ -41,7 +97,7 @@ namespace UnitTestProject
             TestName = "Отрицательное тестирование Payroll при WorkTime 373 и CostPerHour 1401")]
         public void EmployeeHourlyNegativeTest(uint workTime, uint costPerHour)
         {
-            Assert.That(() => new EmployeeHourly(workTime, costPerHour), Throws.TypeOf<Exception>());
+            Assert.That(() => new EmployeeHourly(workTime, costPerHour), Throws.TypeOf<ArgumentException>());
         }
     }
 }

@@ -25,8 +25,8 @@ namespace Salary
             {
                 const int maxSalaryInMonth = 1000000;
                 while (value > maxSalaryInMonth || value == 0)
-                {
-                    throw new Exception(
+                {//TODO \ DONE
+                    throw new ArgumentException(
                         "\nПараметры должны быть больше 0, время работы должно быть не больше 372, " +
                         "оклад не больше 1000000 и норма работы не больше 372" +
                         "\n Введите корректное значение");
@@ -51,7 +51,8 @@ namespace Salary
                 const int maxHourInMonth = 372;
                 while (value > maxHourInMonth || value == 0)
                 {
-                    throw new Exception(
+                    //TODO: \ DONE
+                    throw new ArgumentException(
                         "\nПараметры должны быть больше 0, время работы должно быть не больше 372, " +
                         "оклад не больше 1000000 и норма работы не больше 372" +
                         "\n Введите корректное значение");
@@ -73,8 +74,6 @@ namespace Salary
         /// <summary>
         /// Подсчет зарплаты по ставке
         /// </summary>
-        /// //TODO: Странное поведение - тут программа должна сказать - не вводи такую фигню! \ DONE
-        //TODO: Но вроде бы в базовом есть такая проверка - тогда не понятно - зачем тут. \ DONE
         public override uint Payroll => (uint) ((decimal)_salary / _rate * WorkTime);
 
         /// <summary>

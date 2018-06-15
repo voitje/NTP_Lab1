@@ -31,7 +31,7 @@ namespace Salary
                 const int maxCostPerHour = 1400;
                 while (value > maxCostPerHour || value <= 0)
                 {
-                    throw new Exception(
+                    throw new ArgumentException(
                         "\nПараметры должны быть больше 0 и время работы быть не больше 372, " +
                         "а оплата в час не больше 1400" +
                         "\n Введите корректное значение");

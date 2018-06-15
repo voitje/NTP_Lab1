@@ -18,17 +18,19 @@ namespace ViewSalaryForWorker
             InitializeComponent();
         }
 
-        public EmployeeRate Employee
+        public EmployeeBase EmployeeBase
         {
             set
             {
-                if (value is EmployeeRate employeeRate)
+                if (value is EmployeeRate)
                 {
-                    textBox1.Text = employeeRate.WorkTime.ToString();
-                    textBox2.Text = employeeRate.Salary.ToString();
-                    textBox3.Text = employeeRate.Rate.ToString();
+                    //EmployeeRate employeeRate = new EmployeeRate(uint.Parse(textBox1.Text), uint.Parse(textBox2.Text), uint.Parse(textBox3.Text));
+                    //EmployeeBase = employeeRate;
+                    EmployeeRate employeeRate = new EmployeeRate(WorkTime, Salary, Rate);
+                    EmployeeBase = employeeRate;
                 }
             }
+            get => EmployeeBase;
         }
 
         public uint WorkTime
