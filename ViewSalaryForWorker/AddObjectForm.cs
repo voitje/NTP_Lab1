@@ -78,12 +78,13 @@ namespace ViewSalaryForWorker
         {
             if (LabelSalary.Text == "Оплата в час")
             {
+                //TODO: Дублируется ниже
                 try
                 {
                     EmployeeBase = employeeHourlyControl.EmployeeBase;
                 }
-
-                catch (Exception exception)
+                //TODO: Ловля по базовому исключению - плохо. \ DONE
+                catch (ArgumentException exception)
                 {
                     EmployeeBase = null;
                     MessageBox.Show(exception.Message, "Error",
@@ -96,7 +97,7 @@ namespace ViewSalaryForWorker
                 {
                     EmployeeBase = employeeRateControl.EmployeeBase;
                 }
-                catch (Exception exception)
+                catch (ArgumentException exception)
                 {
                     EmployeeBase = null;
                     MessageBox.Show(exception.Message, "Error",

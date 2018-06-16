@@ -8,10 +8,12 @@ using System.Threading.Tasks;
 
 namespace ViewSalaryForWorker
 {
-    //TODO: RSDN \ DONE
+    //TODO: XML \ DONE
+    /// <summary>
+    /// Функции для TypeSalaryEnum
+    /// </summary>
     public class ToolsForTypeSalaryEnum
     {
-        //TODO: вынести в отдельный CS \ DONE
         /// <summary>
         /// Получить атрибут "Описание"
         /// </summary>

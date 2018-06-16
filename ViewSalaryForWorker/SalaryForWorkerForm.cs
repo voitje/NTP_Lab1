@@ -14,7 +14,6 @@ using Salary;
 
 namespace ViewSalaryForWorker
 {
-    //TODO: Везде ниже XML \ DONE
     /// <summary>
     /// Главная форма SalaryForWorker
     /// </summary>
@@ -38,7 +37,7 @@ namespace ViewSalaryForWorker
         /// <summary>
         /// Имя файла
         /// </summary>
-        private const string fileName = "Employee|*.emp";
+        private const string FileName = "Employee|*.emp";
 
         /// <summary>
         /// Конструктор формы
@@ -64,14 +63,12 @@ namespace ViewSalaryForWorker
 
         private void DisableControls()
         {
-            employeeHourlyControl1.Visible = false;
-            //employeeRateContorl1.Visible = false;
+            //TODO: Много пустых строк + не должно быть комментариев \ DONE
+            employeeHourlyControl.Visible = false;
+            employeeRateControl1.Visible = false;
 
-
-            employeeHourlyControl1.ReadOnly = true;
-            //employeeRateContorl1.ReadOnly = false;
-
-
+            employeeHourlyControl.ReadOnly = true;
+            employeeRateControl1.ReadOnly = true;
         }
 
         /// <summary>
@@ -107,8 +104,7 @@ namespace ViewSalaryForWorker
             try
             {
                 openFileDialog.AddExtension = true;
-                //TODO: Расширение вынести \ DONE
-                openFileDialog.Filter = fileName;
+                openFileDialog.Filter = FileName;
                 DialogResult result = openFileDialog.ShowDialog();
 
                 if (result != DialogResult.Cancel)
@@ -144,7 +140,7 @@ namespace ViewSalaryForWorker
             try
             {
                 saveFileDialog.AddExtension = true;
-                saveFileDialog.Filter = fileName;
+                saveFileDialog.Filter = FileName;
                 var result = saveFileDialog.ShowDialog();
 
                 if (result != DialogResult.Cancel)
@@ -200,17 +196,18 @@ namespace ViewSalaryForWorker
 
             if (currentEmployee is EmployeeHourly employeeHourly)
             {
-                employeeHourlyControl1.Visible = true;
+                //TODO: Название контрола \ DONE
+                employeeHourlyControl.Visible = true;
 
-                employeeHourlyControl1.EmployeeBase = employeeHourly;
+                employeeHourlyControl.EmployeeBase = employeeHourly;
             }
+            else if (currentEmployee is EmployeeRate employeeRate)
+            {
+                //TODO: Название контрола \ DONE
+                employeeRateControl1.Visible = true;
 
-            //TODO:Для контроля EmployeeRate
-            //else if (currentEmployee is EmployeeRate employeeRate)
-            //{
-            //    employeeHourlyControl1.Visible = true;
-
-            //    employeeHourlyControl1.EmployeeBase = employeeRate;
+                employeeRateControl1.EmployeeBase = employeeRate;
+            }
         }
     }
 }

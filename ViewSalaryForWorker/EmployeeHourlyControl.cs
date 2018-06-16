@@ -10,14 +10,23 @@ using System.Windows.Forms;
 using Salary;
 
 namespace ViewSalaryForWorker
-{
+{        //TODO: Ниже всё XML \ DONE
+    /// <summary>
+    ///  Контрол для почасовой зарплаты
+    /// </summary>
     public partial class EmployeeHourlyControl : UserControl
     {
+        /// <summary>
+        ///  Конструктор контрола
+        /// </summary>
         public EmployeeHourlyControl()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        ///  Свойство для создания объекта EmployeeBase
+        /// </summary>
         public EmployeeBase EmployeeBase
         {
             set
@@ -30,20 +39,48 @@ namespace ViewSalaryForWorker
             }
             get => new EmployeeHourly(WorkTime, CostPerHour);
         }
-        //TODO:Все ниже private \ DONE
-        //TODO:ArgumentEX для все Ex в библиотеки \ DONE
+
+        /// <summary>
+        ///  Свойство время работы
+        /// </summary>
         private uint WorkTime
         {
-            get => uint.Parse(textBox1.Text);
+            get
+            {
+                const int maxHourInMonth = 372;
+                while (int.Parse(textBox1.Text) > maxHourInMonth || int.Parse(textBox1.Text) <= 0)
+                {
+                    throw new ArgumentException(
+                        "\nПараметры должны быть больше 0 и время работы быть не больше 372, " +
+                        "\n Введите корректное значение");
+                }
+               return uint.Parse(textBox1.Text); 
+            }
             set => textBox1.Text = value.ToString();
         }
 
+        /// <summary>
+        ///  Свойство оплаты в час
+        /// </summary>
         private uint CostPerHour
         {
-            get => uint.Parse(textBox2.Text);
+            get
+            {
+                const int maxCostPerHour = 1400;
+                while (int.Parse(textBox2.Text) > maxCostPerHour || int.Parse(textBox2.Text) <= 0)
+                {
+                    throw new ArgumentException(
+                        "\nПараметры должны быть больше 0 " + "а оплата в час не больше 1400" +
+                        "\n Введите корректное значение");
+                }
+                return uint.Parse(textBox2.Text);
+            }
             set => textBox2.Text = value.ToString();
         }
 
+        /// <summary>
+        ///  Свойство контрола только для чтения
+        /// </summary>
         public bool ReadOnly
         {
             set

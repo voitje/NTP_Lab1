@@ -12,7 +12,7 @@ namespace UnitTestProject
     [TestFixture]
     public class EmployeeHourlyTests
     {
-        //TODO: Тестировать нужно ВСЮ публичную часть класса, а вы тестируете только Payroll
+        //TODO: Тестировать нужно ВСЮ публичную часть класса, а вы тестируете только Payroll \ DONE
 
         /// <summary>
         /// Позитивное тестирование поля Type

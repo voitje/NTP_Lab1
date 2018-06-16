@@ -28,7 +28,7 @@ namespace Salary
             private set
             {
                 const int maxHourInMonth = 372;
-                while (value > maxHourInMonth || value == 0)
+                while (value > maxHourInMonth || value <= 0)
                 {
                     throw new ArgumentException(
                         "\nПараметры должны быть больше 0 и время работы быть не больше 372, " +

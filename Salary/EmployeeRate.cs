@@ -24,8 +24,8 @@ namespace Salary
             private set
             {
                 const int maxSalaryInMonth = 1000000;
-                while (value > maxSalaryInMonth || value == 0)
-                {//TODO \ DONE
+                while (value > maxSalaryInMonth || value <= 0)
+                {
                     throw new ArgumentException(
                         "\nПараметры должны быть больше 0, время работы должно быть не больше 372, " +
                         "оклад не больше 1000000 и норма работы не больше 372" +
@@ -49,9 +49,8 @@ namespace Salary
             private set
             {
                 const int maxHourInMonth = 372;
-                while (value > maxHourInMonth || value == 0)
+                while (value > maxHourInMonth || value <= 0)
                 {
-                    //TODO: \ DONE
                     throw new ArgumentException(
                         "\nПараметры должны быть больше 0, время работы должно быть не больше 372, " +
                         "оклад не больше 1000000 и норма работы не больше 372" +
