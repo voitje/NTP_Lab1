@@ -22,15 +22,14 @@ namespace ViewSalaryForWorker
         {
             set
             {
-                if (value is EmployeeRate)
+                WorkTime = value.WorkTime;
+                if (value is EmployeeRate employeeRate)
                 {
-                    //EmployeeRate employeeRate = new EmployeeRate(uint.Parse(textBox1.Text), uint.Parse(textBox2.Text), uint.Parse(textBox3.Text));
-                    //EmployeeBase = employeeRate;
-                    EmployeeRate employeeRate = new EmployeeRate(WorkTime, Salary, Rate);
-                    EmployeeBase = employeeRate;
+                    Salary = employeeRate.Salary;
+                    Rate = employeeRate.Rate;
                 }
             }
-            get => EmployeeBase;
+            get => new EmployeeRate(WorkTime, Salary, Rate);
         }
 
         public uint WorkTime
