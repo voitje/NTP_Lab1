@@ -50,7 +50,7 @@ namespace ViewSalaryForWorker
 
             bindingSource.DataSource = _employees;
             dataGridView.DataSource = bindingSource;
-            //dataGridView_CellClick(this, new DataGridViewCellEventArgs(0, 0));
+
             List<Type> knownTypeList = new List<Type>
             {
                 typeof(EmployeeHourly),
@@ -60,15 +60,17 @@ namespace ViewSalaryForWorker
             DisableControls();
         }
 
-
+        /// <summary>
+        /// Метод для изменения контрола(делает его только читаемым)
+        /// </summary>
         private void DisableControls()
         {
             //TODO: Много пустых строк + не должно быть комментариев \ DONE
             employeeHourlyControl.Visible = false;
-            employeeRateControl1.Visible = false;
+            employeeRateControl.Visible = false;
 
             employeeHourlyControl.ReadOnly = true;
-            employeeRateControl1.ReadOnly = true;
+            employeeRateControl.ReadOnly = true;
         }
 
         /// <summary>
@@ -204,9 +206,9 @@ namespace ViewSalaryForWorker
             else if (currentEmployee is EmployeeRate employeeRate)
             {
                 //TODO: Название контрола \ DONE
-                employeeRateControl1.Visible = true;
+                employeeRateControl.Visible = true;
 
-                employeeRateControl1.EmployeeBase = employeeRate;
+                employeeRateControl.EmployeeBase = employeeRate;
             }
         }
     }

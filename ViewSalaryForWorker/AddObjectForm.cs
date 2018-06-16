@@ -72,13 +72,23 @@ namespace ViewSalaryForWorker
         public EmployeeBase EmployeeBase { get; private set; }
 
         /// <summary>
+        /// ArgumentException при ошибки присваивания
+        /// </summary>
+        public void MessageException(ArgumentException exception)
+        {
+            EmployeeBase = null;
+            MessageBox.Show(exception.Message, "Error",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        /// <summary>
         /// Кнопка добавления объекта
         /// </summary>
         private void AddObjectButton_Click(object sender, EventArgs e)
         {
             if (LabelSalary.Text == "Оплата в час")
             {
-                //TODO: Дублируется ниже
+                //TODO: Дублируется ниже \ DONE
                 try
                 {
                     EmployeeBase = employeeHourlyControl.EmployeeBase;
@@ -86,9 +96,7 @@ namespace ViewSalaryForWorker
                 //TODO: Ловля по базовому исключению - плохо. \ DONE
                 catch (ArgumentException exception)
                 {
-                    EmployeeBase = null;
-                    MessageBox.Show(exception.Message, "Error",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageException(exception);
                 }
             }
             else
@@ -99,14 +107,9 @@ namespace ViewSalaryForWorker
                 }
                 catch (ArgumentException exception)
                 {
-                    EmployeeBase = null;
-                    MessageBox.Show(exception.Message, "Error",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageException(exception);
                 }
             }
-            //TODO:При отладки в этом месте прекращает отладку и пишет в Выводе:
-            //Process is terminated due to StackOverflowException.
-            //Программа "[15540] ViewSalaryForWorker.exe" завершилась с кодом - 2147023895(0x800703e9).
             if (EmployeeBase != null)
             {
                 this.Hide();

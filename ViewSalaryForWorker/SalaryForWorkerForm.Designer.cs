@@ -230,7 +230,7 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.Button ButtomAddRandomObject;
         private EmployeeHourlyControl employeeHourlyControl;
-        private EmployeeRateControl employeeRateControl1;
+        private EmployeeRateControl employeeRateControl;
     }
 }
 
