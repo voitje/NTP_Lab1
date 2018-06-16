@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using Salary;
 
 namespace ViewSalaryForWorker
-{
+{//TODO: Везде ниже XML
     public partial class EmployeeRateControl : UserControl
     {
         public EmployeeRateControl()
@@ -24,15 +24,17 @@ namespace ViewSalaryForWorker
             {
                 if (value is EmployeeRate)
                 {
+                    //TODO: Зачем это тут?
                     //EmployeeRate employeeRate = new EmployeeRate(uint.Parse(textBox1.Text), uint.Parse(textBox2.Text), uint.Parse(textBox3.Text));
                     //EmployeeBase = employeeRate;
                     EmployeeRate employeeRate = new EmployeeRate(WorkTime, Salary, Rate);
                     EmployeeBase = employeeRate;
                 }
             }
+            //TODO: Падает на StackOverflowEx - потому что рекурсия.
             get => EmployeeBase;
         }
-
+        //TODO: Нижё всё на Private set и XML
         public uint WorkTime
         {
             get => uint.Parse(textBox1.Text);

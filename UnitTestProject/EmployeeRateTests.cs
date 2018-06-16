@@ -12,9 +12,6 @@ namespace UnitTestProject
     [TestFixture]
     public class EmployeeRateTests
     {
-        //TODO: Тестировать нужно ВСЮ публичную часть класса, а вы тестируете только Payroll
-
-
         /// <summary>
         /// Позитивное тестирование поля Type
         /// </summary>

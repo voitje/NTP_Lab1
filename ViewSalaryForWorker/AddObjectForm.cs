@@ -78,11 +78,12 @@ namespace ViewSalaryForWorker
         {
             if (LabelSalary.Text == "Оплата в час")
             {
+                //TODO: Дублируется ниже
                 try
                 {
                     EmployeeBase = employeeHourlyControl.EmployeeBase;
                 }
-
+                //TODO: Ловля по базовому исключению - плохо.
                 catch (Exception exception)
                 {
                     EmployeeBase = null;

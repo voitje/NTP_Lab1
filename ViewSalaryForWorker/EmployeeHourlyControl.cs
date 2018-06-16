@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using Salary;
 
 namespace ViewSalaryForWorker
-{
+{        //TODO: Ниже всё XML
     public partial class EmployeeHourlyControl : UserControl
     {
         public EmployeeHourlyControl()
@@ -30,8 +30,7 @@ namespace ViewSalaryForWorker
             }
             get => new EmployeeHourly(WorkTime, CostPerHour);
         }
-        //TODO:Все ниже private \ DONE
-        //TODO:ArgumentEX для все Ex в библиотеки \ DONE
+ 
         private uint WorkTime
         {
             get => uint.Parse(textBox1.Text);

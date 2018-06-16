@@ -14,7 +14,6 @@ using Salary;
 
 namespace ViewSalaryForWorker
 {
-    //TODO: Везде ниже XML \ DONE
     /// <summary>
     /// Главная форма SalaryForWorker
     /// </summary>
@@ -38,7 +37,7 @@ namespace ViewSalaryForWorker
         /// <summary>
         /// Имя файла
         /// </summary>
-        private const string fileName = "Employee|*.emp";
+        private const string FileName = "Employee|*.emp";
 
         /// <summary>
         /// Конструктор формы
@@ -64,6 +63,7 @@ namespace ViewSalaryForWorker
 
         private void DisableControls()
         {
+            //TODO: Много пустых строк + не должно быть комментариев
             employeeHourlyControl1.Visible = false;
             //employeeRateContorl1.Visible = false;
 
@@ -107,8 +107,7 @@ namespace ViewSalaryForWorker
             try
             {
                 openFileDialog.AddExtension = true;
-                //TODO: Расширение вынести \ DONE
-                openFileDialog.Filter = fileName;
+                openFileDialog.Filter = FileName;
                 DialogResult result = openFileDialog.ShowDialog();
 
                 if (result != DialogResult.Cancel)
@@ -144,7 +143,7 @@ namespace ViewSalaryForWorker
             try
             {
                 saveFileDialog.AddExtension = true;
-                saveFileDialog.Filter = fileName;
+                saveFileDialog.Filter = FileName;
                 var result = saveFileDialog.ShowDialog();
 
                 if (result != DialogResult.Cancel)
@@ -200,17 +199,11 @@ namespace ViewSalaryForWorker
 
             if (currentEmployee is EmployeeHourly employeeHourly)
             {
+                //TODO: Название контрола
                 employeeHourlyControl1.Visible = true;
 
                 employeeHourlyControl1.EmployeeBase = employeeHourly;
             }
-
-            //TODO:Для контроля EmployeeRate
-            //else if (currentEmployee is EmployeeRate employeeRate)
-            //{
-            //    employeeHourlyControl1.Visible = true;
-
-            //    employeeHourlyControl1.EmployeeBase = employeeRate;
         }
     }
 }
