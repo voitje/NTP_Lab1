@@ -45,7 +45,7 @@
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.ButtomAddRandomObject = new System.Windows.Forms.Button();
             this.employeeHourlyControl = new ViewSalaryForWorker.EmployeeHourlyControl();
-            this.employeeRateControl1 = new ViewSalaryForWorker.EmployeeRateControl();
+            this.employeeRateControl = new ViewSalaryForWorker.EmployeeRateControl();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
@@ -179,19 +179,19 @@
             this.employeeHourlyControl.Size = new System.Drawing.Size(434, 160);
             this.employeeHourlyControl.TabIndex = 5;
             // 
-            // employeeRateControl1
+            // employeeRateControl
             // 
-            this.employeeRateControl1.Location = new System.Drawing.Point(22, 353);
-            this.employeeRateControl1.Name = "employeeRateControl1";
-            this.employeeRateControl1.Size = new System.Drawing.Size(451, 160);
-            this.employeeRateControl1.TabIndex = 1;
+            this.employeeRateControl.Location = new System.Drawing.Point(22, 352);
+            this.employeeRateControl.Name = "employeeRateControl";
+            this.employeeRateControl.Size = new System.Drawing.Size(451, 154);
+            this.employeeRateControl.TabIndex = 1;
             // 
             // SalaryForWorkerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(562, 525);
-            this.Controls.Add(this.employeeRateControl1);
+            this.Controls.Add(this.employeeRateControl);
             this.Controls.Add(this.employeeHourlyControl);
             this.Controls.Add(this.ButtomAddRandomObject);
             this.Controls.Add(this.ButtonRemoveObject);

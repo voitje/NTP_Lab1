@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 
 using Salary;
@@ -38,18 +39,12 @@ namespace ViewSalaryForWorker
             {
                 case "По часам":
                 {
-                    LabelSalary.Text = "Оплата в час";
-                    TextBoxRate.Visible = false;
-                    LabelRate.Visible = false;
                     employeeRateControl.Hide();
                     employeeHourlyControl.Show();
                     break;
                 }
                 case "По окладу и ставке":
                 {
-                    TextBoxRate.Visible = true;
-                    LabelRate.Visible = true;
-                    LabelSalary.Text = "Оклад (норма)";
                     employeeRateControl.Show();
                     employeeHourlyControl.Hide();
                     break;
@@ -72,13 +67,20 @@ namespace ViewSalaryForWorker
         public EmployeeBase EmployeeBase { get; private set; }
 
         /// <summary>
-        /// ArgumentException при ошибки присваивания
+        /// Метод, для передачи объекта созданого в контролере
         /// </summary>
-        public void MessageException(ArgumentException exception)
+        private void ChangeSalary(EmployeeBase employee)
         {
-            EmployeeBase = null;
-            MessageBox.Show(exception.Message, "Error",
-                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            try
+            {
+                EmployeeBase = employee;
+            }
+            catch (ArgumentException exception)
+            {
+                EmployeeBase = null;
+                MessageBox.Show(exception.Message, "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         /// <summary>
@@ -86,30 +88,31 @@ namespace ViewSalaryForWorker
         /// </summary>
         private void AddObjectButton_Click(object sender, EventArgs e)
         {
-            if (LabelSalary.Text == "Оплата в час")
+            var salary = ComboBoxSalaryType.Text;
+            try
             {
-                //TODO: Дублируется ниже \ DONE
-                //TODO: Всё ещё дублируется.
-                try
+                switch (salary)
                 {
-                    EmployeeBase = employeeHourlyControl.EmployeeBase;
-                }
-                catch (ArgumentException exception)
-                {
-                    MessageException(exception);
+                    //TODO: Дублируется ниже \ DONE
+                    //TODO: Всё ещё дублируется. \ DONE
+                    case "По часам":
+                    {
+                        ChangeSalary(employeeHourlyControl.EmployeeBase);
+                        break;
+                    }
+                    case "По окладу и ставке":
+                    {
+                        ChangeSalary(employeeRateControl.EmployeeBase);
+                        break;
+                    }
                 }
             }
-            else
+            catch (Exception exception)
             {
-                try
-                {
-                    EmployeeBase = employeeRateControl.EmployeeBase;
-                }
-                catch (ArgumentException exception)
-                {
-                    MessageException(exception);
-                }
+                MessageBox.Show(exception.Message, "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
             if (EmployeeBase != null)
             {
                 this.Hide();

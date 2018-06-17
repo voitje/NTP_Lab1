@@ -32,12 +32,6 @@
             this.ComboBoxSalaryType = new System.Windows.Forms.ComboBox();
             this.employeeBaseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.LabelSalaryType = new System.Windows.Forms.Label();
-            this.TextBoxWorkTime = new System.Windows.Forms.TextBox();
-            this.TextBoxSalary = new System.Windows.Forms.TextBox();
-            this.LabelSalary = new System.Windows.Forms.Label();
-            this.LabelRate = new System.Windows.Forms.Label();
-            this.TextBoxRate = new System.Windows.Forms.TextBox();
-            this.LabelWorkTime = new System.Windows.Forms.Label();
             this.ButtonAddObject = new System.Windows.Forms.Button();
             this.ButtonCancel = new System.Windows.Forms.Button();
             this.typeSalaryBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -71,54 +65,6 @@
             this.LabelSalaryType.TabIndex = 1;
             this.LabelSalaryType.Text = "Способ выплаты зарплаты";
             // 
-            // TextBoxWorkTime
-            // 
-            this.TextBoxWorkTime.Location = new System.Drawing.Point(225, 83);
-            this.TextBoxWorkTime.Name = "TextBoxWorkTime";
-            this.TextBoxWorkTime.Size = new System.Drawing.Size(100, 22);
-            this.TextBoxWorkTime.TabIndex = 3;
-            // 
-            // TextBoxSalary
-            // 
-            this.TextBoxSalary.Location = new System.Drawing.Point(225, 111);
-            this.TextBoxSalary.Name = "TextBoxSalary";
-            this.TextBoxSalary.Size = new System.Drawing.Size(100, 22);
-            this.TextBoxSalary.TabIndex = 4;
-            // 
-            // LabelSalary
-            // 
-            this.LabelSalary.AutoSize = true;
-            this.LabelSalary.Location = new System.Drawing.Point(93, 114);
-            this.LabelSalary.Name = "LabelSalary";
-            this.LabelSalary.Size = new System.Drawing.Size(105, 17);
-            this.LabelSalary.TabIndex = 5;
-            this.LabelSalary.Text = "Оклад (норма)";
-            // 
-            // LabelRate
-            // 
-            this.LabelRate.AutoSize = true;
-            this.LabelRate.Location = new System.Drawing.Point(33, 142);
-            this.LabelRate.Name = "LabelRate";
-            this.LabelRate.Size = new System.Drawing.Size(166, 17);
-            this.LabelRate.TabIndex = 6;
-            this.LabelRate.Text = "Норма работы (в часах)";
-            // 
-            // TextBoxRate
-            // 
-            this.TextBoxRate.Location = new System.Drawing.Point(225, 139);
-            this.TextBoxRate.Name = "TextBoxRate";
-            this.TextBoxRate.Size = new System.Drawing.Size(100, 22);
-            this.TextBoxRate.TabIndex = 7;
-            // 
-            // LabelWorkTime
-            // 
-            this.LabelWorkTime.AutoSize = true;
-            this.LabelWorkTime.Location = new System.Drawing.Point(50, 86);
-            this.LabelWorkTime.Name = "LabelWorkTime";
-            this.LabelWorkTime.Size = new System.Drawing.Size(149, 17);
-            this.LabelWorkTime.TabIndex = 8;
-            this.LabelWorkTime.Text = "Отработанное время";
-            // 
             // ButtonAddObject
             // 
             this.ButtonAddObject.Location = new System.Drawing.Point(36, 271);
@@ -139,22 +85,18 @@
             this.ButtonCancel.UseVisualStyleBackColor = true;
             this.ButtonCancel.Click += new System.EventHandler(this.CancelButton_Click);
             // 
-            // typeSalaryBindingSource
-            // 
-            //this.typeSalaryBindingSource.DataSource = typeof(ViewSalaryForWorker.AddObjectForm.TypeSalary);
-            // 
             // employeeRateControl
             // 
-            this.employeeRateControl.Location = new System.Drawing.Point(-2, 42);
+            this.employeeRateControl.Location = new System.Drawing.Point(-3, 42);
             this.employeeRateControl.Name = "employeeRateControl";
-            this.employeeRateControl.Size = new System.Drawing.Size(451, 211);
+            this.employeeRateControl.Size = new System.Drawing.Size(373, 211);
             this.employeeRateControl.TabIndex = 11;
             // 
             // employeeHourlyControl
             // 
-            this.employeeHourlyControl.Location = new System.Drawing.Point(-2, 35);
+            this.employeeHourlyControl.Location = new System.Drawing.Point(-3, 42);
             this.employeeHourlyControl.Name = "employeeHourlyControl";
-            this.employeeHourlyControl.Size = new System.Drawing.Size(434, 231);
+            this.employeeHourlyControl.Size = new System.Drawing.Size(373, 223);
             this.employeeHourlyControl.TabIndex = 12;
             // 
             // AddObjectForm
@@ -166,12 +108,6 @@
             this.Controls.Add(this.employeeRateControl);
             this.Controls.Add(this.ButtonCancel);
             this.Controls.Add(this.ButtonAddObject);
-            this.Controls.Add(this.LabelWorkTime);
-            this.Controls.Add(this.TextBoxRate);
-            this.Controls.Add(this.LabelRate);
-            this.Controls.Add(this.LabelSalary);
-            this.Controls.Add(this.TextBoxSalary);
-            this.Controls.Add(this.TextBoxWorkTime);
             this.Controls.Add(this.LabelSalaryType);
             this.Controls.Add(this.ComboBoxSalaryType);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -188,12 +124,6 @@
 
         private System.Windows.Forms.ComboBox ComboBoxSalaryType;
         private System.Windows.Forms.Label LabelSalaryType;
-        private System.Windows.Forms.TextBox TextBoxWorkTime;
-        private System.Windows.Forms.TextBox TextBoxSalary;
-        private System.Windows.Forms.Label LabelSalary;
-        private System.Windows.Forms.Label LabelRate;
-        private System.Windows.Forms.TextBox TextBoxRate;
-        private System.Windows.Forms.Label LabelWorkTime;
         private System.Windows.Forms.Button ButtonAddObject;
         private System.Windows.Forms.Button ButtonCancel;
         private System.Windows.Forms.BindingSource employeeBaseBindingSource;
