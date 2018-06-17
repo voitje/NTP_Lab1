@@ -8,6 +8,9 @@ using System.Runtime.Serialization;
 
 namespace Salary
 {
+    //TODO: Слишком много кто знает o EmployeeHourly, при увеличении числа наследников нужно будет в каждом месте дописывать
+    //TODO: код. Такие места надо сокращать. Для этого есть шаблон проектирования Factory, позволяющий сгрупировать
+    //TODO: порождение экземпляров наследников.
     /// <summary>
     /// Зарплата по часам
     /// </summary>
@@ -28,6 +31,7 @@ namespace Salary
             get => _costPerHour;
             private set
             {
+                //TODO: Можно сократить дублирование - вынеся метод в базовый класс.
                 const int maxCostPerHour = 1400;
                 while (value > maxCostPerHour || value <= 0)
                 {

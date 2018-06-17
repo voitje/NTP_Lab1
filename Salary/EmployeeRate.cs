@@ -3,6 +3,9 @@ using System.Runtime.Serialization;
 
 namespace Salary
 {
+    //TODO: Слишком много кто знает o EmployeeRate, при увеличении числа наследников нужно будет в каждом месте дописывать
+    //TODO: код. Такие места надо сокращать. Для этого есть шаблон проектирования Factory, позволяющий сгрупировать
+    //TODO: порождение экземпляров наследников.
     /// <summary>
     /// Зарплата по ставке
     /// </summary>
@@ -22,7 +25,7 @@ namespace Salary
         {
             get => _salary;
             private set
-            {
+            {//TODO: Можно сократить дублирование - вынеся метод в базовый класс.
                 const int maxSalaryInMonth = 1000000;
                 while (value > maxSalaryInMonth || value <= 0)
                 {
@@ -47,7 +50,7 @@ namespace Salary
         {
             get => _rate;
             private set
-            {
+            {//TODO: Можно сократить дублирование - вынеся метод в базовый класс.
                 const int maxHourInMonth = 372;
                 while (value > maxHourInMonth || value <= 0)
                 {

@@ -93,8 +93,6 @@ namespace ViewSalaryForWorker
             {
                 switch (salary)
                 {
-                    //TODO: Дублируется ниже \ DONE
-                    //TODO: Всё ещё дублируется. \ DONE
                     case "По часам":
                     {
                         ChangeSalary(employeeHourlyControl.EmployeeBase);

@@ -49,6 +49,7 @@ namespace ViewSalaryForWorker
         {
             get
             {
+                //TODO: Не должно дублироваться с заданием свойства в предметной области.
                 const int maxHourInMonth = 372;
                 while (int.Parse(textBox1.Text) > maxHourInMonth || int.Parse(textBox1.Text) <= 0)
                 {
@@ -68,6 +69,7 @@ namespace ViewSalaryForWorker
         {
             get
             {
+                //TODO: Не должно дублироваться с заданием свойства в предметной области.
                 const int maxSalaryInMonth = 1000000;
                 while (int.Parse(textBox2.Text) > maxSalaryInMonth || int.Parse(textBox2.Text) <= 0)
                 {
@@ -87,7 +89,7 @@ namespace ViewSalaryForWorker
         private uint Rate
         {
             get
-            {
+            {//TODO: Не должно дублироваться с заданием свойства в предметной области.
                 const int maxHourInMonth = 372;
                 while (int.Parse(textBox3.Text) > maxHourInMonth || int.Parse(textBox3.Text) <= 0)
                 {
