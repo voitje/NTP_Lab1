@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 
 namespace ViewSalaryForWorker
 {
-    //TODO: XML \ DONE
     /// <summary>
     /// Функции для TypeSalaryEnum
     /// </summary>

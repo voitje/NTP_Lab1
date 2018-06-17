@@ -89,11 +89,11 @@ namespace ViewSalaryForWorker
             if (LabelSalary.Text == "Оплата в час")
             {
                 //TODO: Дублируется ниже \ DONE
+                //TODO: Всё ещё дублируется.
                 try
                 {
                     EmployeeBase = employeeHourlyControl.EmployeeBase;
                 }
-                //TODO: Ловля по базовому исключению - плохо. \ DONE
                 catch (ArgumentException exception)
                 {
                     MessageException(exception);

@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using Salary;
 
 namespace ViewSalaryForWorker
-{        //TODO: Ниже всё XML \ DONE
+{
     /// <summary>
     ///  Контрол для почасовой зарплаты
     /// </summary>

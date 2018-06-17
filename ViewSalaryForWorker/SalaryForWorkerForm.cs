@@ -65,7 +65,6 @@ namespace ViewSalaryForWorker
         /// </summary>
         private void DisableControls()
         {
-            //TODO: Много пустых строк + не должно быть комментариев \ DONE
             employeeHourlyControl.Visible = false;
             employeeRateControl.Visible = false;
 
@@ -198,14 +197,12 @@ namespace ViewSalaryForWorker
 
             if (currentEmployee is EmployeeHourly employeeHourly)
             {
-                //TODO: Название контрола \ DONE
                 employeeHourlyControl.Visible = true;
 
                 employeeHourlyControl.EmployeeBase = employeeHourly;
             }
             else if (currentEmployee is EmployeeRate employeeRate)
             {
-                //TODO: Название контрола \ DONE
                 employeeRateControl.Visible = true;
 
                 employeeRateControl.EmployeeBase = employeeRate;

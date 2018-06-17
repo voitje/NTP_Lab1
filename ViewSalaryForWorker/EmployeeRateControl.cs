@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using Salary;
 
 namespace ViewSalaryForWorker
-{//TODO: Везде ниже XML \ DONE
+{
     /// <summary>
     ///  Контрол для зарплаты по окладу и ставке
     /// </summary>
@@ -39,11 +39,9 @@ namespace ViewSalaryForWorker
                 }
 
             }
-            //TODO: Падает на StackOverflowEx - потому что рекурсия. \ DONE
             get => new EmployeeRate(WorkTime, Salary, Rate);
         }
 
-        //TODO: Нижё всё на Private set и XML \ DONE
         /// <summary>
         ///  Свойство время работы
         /// </summary>
