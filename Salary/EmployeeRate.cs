@@ -25,15 +25,11 @@ namespace Salary
         {
             get => _salary;
             private set
-            {//TODO: Можно сократить дублирование - вынеся метод в базовый класс.
+            {//TODO: Можно сократить дублирование - вынеся метод в базовый класс. \ DONE
                 const int maxSalaryInMonth = 1000000;
-                while (value > maxSalaryInMonth || value <= 0)
-                {
-                    throw new ArgumentException(
-                        "\nПараметры должны быть больше 0, время работы должно быть не больше 372, " +
-                        "оклад не больше 1000000 и норма работы не больше 372" +
-                        "\n Введите корректное значение");
-                }
+                CheckingData((int)value, 
+                    "\nПараметры должны быть больше 0, а оклад не больше 1000000" +
+                    "\n Введите корректное значение", maxSalaryInMonth);
                 _salary = value;
             }
         }
@@ -50,15 +46,11 @@ namespace Salary
         {
             get => _rate;
             private set
-            {//TODO: Можно сократить дублирование - вынеся метод в базовый класс.
+            {//TODO: Можно сократить дублирование - вынеся метод в базовый класс. \ DONE
                 const int maxHourInMonth = 372;
-                while (value > maxHourInMonth || value <= 0)
-                {
-                    throw new ArgumentException(
-                        "\nПараметры должны быть больше 0, время работы должно быть не больше 372, " +
-                        "оклад не больше 1000000 и норма работы не больше 372" +
-                        "\n Введите корректное значение");
-                }
+                CheckingData((int)value,
+                    "\nПараметры должны быть больше 0, а норма работы не больше 372" +
+                    "\n Введите корректное значение", maxHourInMonth);
                 _rate = value;
             }
         }

@@ -173,15 +173,15 @@ namespace ViewSalaryForWorker
                 case 1:
                 {
                     uint costPerHour = (uint) random.Next(1, 1400);
-                    bindingSource.Add(new EmployeeHourly(workTime, costPerHour));
-                    break;
+                    bindingSource.Add(SalaryFactory.GetSalary(TypeSalary.Hourly, workTime, costPerHour));
+                        break;
                 }
                 case 2:
                 {
                     uint rate = (uint) random.Next(1, 372);
                     uint salary = (uint) random.Next(1, 1000000);
-                    bindingSource.Add(new EmployeeRate(workTime, salary, rate));
-                    break;
+                    bindingSource.Add(SalaryFactory.GetSalary(TypeSalary.Rate, workTime, salary, rate));
+                        break;
                 }
             }
         }

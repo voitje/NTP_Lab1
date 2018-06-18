@@ -54,6 +54,14 @@ namespace Salary
         /// <summary>
         /// Тип зарплаты
         /// </summary>
-        public abstract string Type { get; }    
+        public abstract string Type { get; }
+
+        protected void CheckingData(int value, string textException, int border)
+        {
+            while ((int)value > border || (int)value <= 0)
+            {
+                throw new ArgumentException(textException);
+            }
+        }
     }
 }

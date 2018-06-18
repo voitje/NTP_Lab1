@@ -73,7 +73,6 @@
       <DependentUpon>EmployeeRateControl.cs</DependentUpon>
     </Compile>
     <Compile Include="ToolsForTypeSalaryEnum.cs" />
-    <Compile Include="TypeSalaryEnum.cs" />
     <EmbeddedResource Include="AddObjectForm.resx">
       <DependentUpon>AddObjectForm.cs</DependentUpon>
     </EmbeddedResource>

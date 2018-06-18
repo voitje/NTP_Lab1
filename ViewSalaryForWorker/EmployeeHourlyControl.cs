@@ -37,7 +37,8 @@ namespace ViewSalaryForWorker
                     CostPerHour = employeeHourly.CostPerHour;
                 }
             }
-            get => new EmployeeHourly(WorkTime, CostPerHour);
+            //get => new EmployeeHourly(WorkTime, CostPerHour);
+            get => SalaryFactory.GetSalary(TypeSalary.Hourly, WorkTime, CostPerHour);
         }
 
         /// <summary>
@@ -45,18 +46,8 @@ namespace ViewSalaryForWorker
         /// </summary>
         private uint WorkTime
         {
-            get
-            {
-                //TODO: Не должно дублироваться с заданием свойства в предметной области.
-                const int maxHourInMonth = 372;
-                while (int.Parse(textBox1.Text) > maxHourInMonth || int.Parse(textBox1.Text) <= 0)
-                {
-                    throw new ArgumentException(
-                        "\nПараметры должны быть больше 0 и время работы быть не больше 372, " +
-                        "\n Введите корректное значение");
-                }
-               return uint.Parse(textBox1.Text); 
-            }
+            //TODO: Не должно дублироваться с заданием свойства в предметной области. \ DONE (все переделал)
+            get => uint.Parse(textBox1.Text);
             set => textBox1.Text = value.ToString();
         }
 
@@ -65,18 +56,7 @@ namespace ViewSalaryForWorker
         /// </summary>
         private uint CostPerHour
         {
-            get
-            {
-                //TODO: Не должно дублироваться с заданием свойства в предметной области.
-                const int maxCostPerHour = 1400;
-                while (int.Parse(textBox2.Text) > maxCostPerHour || int.Parse(textBox2.Text) <= 0)
-                {
-                    throw new ArgumentException(
-                        "\nПараметры должны быть больше 0 " + "а оплата в час не больше 1400" +
-                        "\n Введите корректное значение");
-                }
-                return uint.Parse(textBox2.Text);
-            }
+            get => uint.Parse(textBox2.Text);
             set => textBox2.Text = value.ToString();
         }
 

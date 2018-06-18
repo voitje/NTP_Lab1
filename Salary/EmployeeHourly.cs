@@ -31,15 +31,11 @@ namespace Salary
             get => _costPerHour;
             private set
             {
-                //TODO: Можно сократить дублирование - вынеся метод в базовый класс.
+                //TODO: Можно сократить дублирование - вынеся метод в базовый класс. \ DONE
                 const int maxCostPerHour = 1400;
-                while (value > maxCostPerHour || value <= 0)
-                {
-                    throw new ArgumentException(
-                        "\nПараметры должны быть больше 0 и время работы быть не больше 372, " +
-                        "а оплата в час не больше 1400" +
-                        "\n Введите корректное значение");
-                }
+                CheckingData((int)value,
+                    "\nПараметры должны быть больше 0, оплата в час не больше 1400" +
+                    "\n Введите корректное значение", maxCostPerHour);
                 _costPerHour = value;
             }
         }

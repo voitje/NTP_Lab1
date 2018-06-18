@@ -39,7 +39,7 @@ namespace ViewSalaryForWorker
                 }
 
             }
-            get => new EmployeeRate(WorkTime, Salary, Rate);
+            get => SalaryFactory.GetSalary(TypeSalary.Rate, WorkTime, Salary, Rate);
         }
 
         /// <summary>
@@ -47,18 +47,7 @@ namespace ViewSalaryForWorker
         /// </summary>
         private uint WorkTime
         {
-            get
-            {
-                //TODO: Не должно дублироваться с заданием свойства в предметной области.
-                const int maxHourInMonth = 372;
-                while (int.Parse(textBox1.Text) > maxHourInMonth || int.Parse(textBox1.Text) <= 0)
-                {
-                    throw new ArgumentException(
-                        "\nПараметры должны быть больше 0 и время работы быть не больше 372, " +
-                        "\n Введите корректное значение");
-                }
-                return uint.Parse(textBox1.Text);
-            }
+            get => uint.Parse(textBox1.Text);
             set => textBox1.Text = value.ToString();
         }
 
@@ -67,19 +56,7 @@ namespace ViewSalaryForWorker
         /// </summary>
         private uint Salary
         {
-            get
-            {
-                //TODO: Не должно дублироваться с заданием свойства в предметной области.
-                const int maxSalaryInMonth = 1000000;
-                while (int.Parse(textBox2.Text) > maxSalaryInMonth || int.Parse(textBox2.Text) <= 0)
-                {
-                    throw new ArgumentException(
-                        "\nПараметры должны быть больше 0," + "оклад не больше 1000000" +
-                        "\n Введите корректное значение");
-                }
-
-                return uint.Parse(textBox2.Text);
-            }
+            get => uint.Parse(textBox2.Text);
             set => textBox2.Text = value.ToString();
         }
 
@@ -88,17 +65,7 @@ namespace ViewSalaryForWorker
         /// </summary>
         private uint Rate
         {
-            get
-            {//TODO: Не должно дублироваться с заданием свойства в предметной области.
-                const int maxHourInMonth = 372;
-                while (int.Parse(textBox3.Text) > maxHourInMonth || int.Parse(textBox3.Text) <= 0)
-                {
-                    throw new ArgumentException(
-                        "\nПараметры должны быть больше 0, а норма работы не больше 372" +
-                        "\n Введите корректное значение");
-                }
-                return uint.Parse(textBox3.Text);
-            }
+            get => uint.Parse(textBox3.Text);
             set => textBox3.Text = value.ToString();
         }
 
