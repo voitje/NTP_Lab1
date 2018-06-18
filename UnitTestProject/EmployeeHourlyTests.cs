@@ -5,7 +5,7 @@ using NUnit.Framework.Internal;
 using Salary;
 
 namespace UnitTestProject
-{
+{//TODO: Должно быть тестирование factory
     /// <summary>
     /// Тестирования для EmployeeHourlyTests
     /// </summary>

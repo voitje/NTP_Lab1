@@ -46,7 +46,6 @@ namespace ViewSalaryForWorker
         /// </summary>
         private uint WorkTime
         {
-            //TODO: Не должно дублироваться с заданием свойства в предметной области. \ DONE (все переделал)
             get => uint.Parse(textBox1.Text);
             set => textBox1.Text = value.ToString();
         }

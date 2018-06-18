@@ -13,10 +13,11 @@ namespace Salary
         public static EmployeeBase GetSalary(TypeSalary key,
             params uint[] value)
         {
+            //TODO: Нужно валидировать передаваемые параметры
             EmployeeBase employeeBase;
 
             switch (key)
-            {
+            {//TODO: Получается что инициализироваться будет одними и теми же параметрами value[0]?
                 case TypeSalary.Hourly:
                     employeeBase = new EmployeeHourly(value[0],value[0]);
                     break;
