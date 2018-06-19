@@ -5,14 +5,13 @@ using NUnit.Framework.Internal;
 using Salary;
 
 namespace UnitTestProject
-{//TODO: Должно быть тестирование factory
+{//TODO: Должно быть тестирование factory \ DONE
     /// <summary>
     /// Тестирования для EmployeeHourlyTests
     /// </summary>
     [TestFixture]
     public class EmployeeHourlyTests
     {
-
         /// <summary>
         /// Позитивное тестирование поля Type
         /// </summary>

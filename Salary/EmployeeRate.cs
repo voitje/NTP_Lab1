@@ -26,11 +26,9 @@ namespace Salary
             get => _salary;
             private set
             {//TODO: Можно сократить дублирование - вынеся метод в базовый класс. 
-                //TODO: Ещё можно сократить, сформировав сообщение в самом методе.
+                //TODO: Ещё можно сократить, сформировав сообщение в самом методе. \ DONE
                 const int maxSalaryInMonth = 1000000;
-                CheckingData((int)value, 
-                    "\nПараметры должны быть больше 0, а оклад не больше 1000000" +
-                    "\n Введите корректное значение", maxSalaryInMonth);
+                CheckingData((int)value, maxSalaryInMonth);
                 _salary = value;
             }
         }
@@ -48,11 +46,9 @@ namespace Salary
             get => _rate;
             private set
             {//TODO: Можно сократить дублирование - вынеся метод в базовый класс. 
-                //TODO: Ещё можно сократить, сформировав сообщение в самом методе.
+                //TODO: Ещё можно сократить, сформировав сообщение в самом методе. \ DONE
                 const int maxHourInMonth = 372;
-                CheckingData((int)value,
-                    "\nПараметры должны быть больше 0, а норма работы не больше 372" +
-                    "\n Введите корректное значение", maxHourInMonth);
+                CheckingData((int)value, maxHourInMonth);
                 _rate = value;
             }
         }

@@ -32,11 +32,9 @@ namespace Salary
             private set
             {
                 //TODO: Можно сократить дублирование - вынеся метод в базовый класс. 
-                //TODO: Ещё можно сократить, сформировав сообщение в самом методе.
+                //TODO: Ещё можно сократить, сформировав сообщение в самом методе. \ DONE
                 const int maxCostPerHour = 1400;
-                CheckingData((int)value,
-                    "\nПараметры должны быть больше 0, оплата в час не больше 1400" +
-                    "\n Введите корректное значение", maxCostPerHour);
+                CheckingData((int)value, maxCostPerHour);
                 _costPerHour = value;
             }
         }

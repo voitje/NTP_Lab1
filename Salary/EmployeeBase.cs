@@ -56,11 +56,12 @@ namespace Salary
         /// </summary>
         public abstract string Type { get; }
 
-        protected void CheckingData(int value, string textException, int border)
+        protected void CheckingData(int value, int border)
         {
             while ((int)value > border || (int)value <= 0)
             {
-                throw new ArgumentException(textException);
+                throw new ArgumentException($"\nПараметры должны быть больше 0 и не больше {border}" +
+                                            $"\n Введите корректное значение");
             }
         }
     }

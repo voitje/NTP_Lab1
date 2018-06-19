@@ -14,16 +14,21 @@ namespace Salary
             params uint[] value)
         {
             //TODO: Нужно валидировать передаваемые параметры
-            EmployeeBase employeeBase;
+            EmployeeBase employeeBase = null;
 
             switch (key)
             {//TODO: Получается что инициализироваться будет одними и теми же параметрами value[0]?
                 case TypeSalary.Hourly:
-                    employeeBase = new EmployeeHourly(value[0],value[0]);
+                    if (value.Length == 2)
+                    {
+                        employeeBase = new EmployeeHourly(value[0], value[1]);
+                    }
                     break;
-
                 case TypeSalary.Rate:
-                    employeeBase = new EmployeeRate(value[0], value[0], value[0]);
+                    if (value.Length == 3)
+                    {
+                        employeeBase = new EmployeeRate(value[0], value[1], value[2]);
+                    }
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(key), key, null);
