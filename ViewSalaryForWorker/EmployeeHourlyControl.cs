@@ -37,7 +37,6 @@ namespace ViewSalaryForWorker
                     CostPerHour = employeeHourly.CostPerHour;
                 }
             }
-            //get => new EmployeeHourly(WorkTime, CostPerHour);
             get => SalaryFactory.GetSalary(TypeSalary.Hourly, WorkTime, CostPerHour);
         }
 
