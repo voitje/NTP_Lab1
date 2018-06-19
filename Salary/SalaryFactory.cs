@@ -13,11 +13,10 @@ namespace Salary
         public static EmployeeBase GetSalary(TypeSalary key,
             params uint[] value)
         {
-            //TODO: Нужно валидировать передаваемые параметры
             EmployeeBase employeeBase = null;
 
             switch (key)
-            {//TODO: Получается что инициализироваться будет одними и теми же параметрами value[0]?
+            {
                 case TypeSalary.Hourly:
                     if (value.Length == 2)
                     {
@@ -33,7 +32,7 @@ namespace Salary
                 default:
                     throw new ArgumentOutOfRangeException(nameof(key), key, null);
             }
-
+            //TODO: Действительно ли должен вернуться null или правильнее будет кинуть исключение?
             return employeeBase;
         }
     }
