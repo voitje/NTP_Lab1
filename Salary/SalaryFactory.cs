@@ -33,7 +33,14 @@ namespace Salary
                     throw new ArgumentOutOfRangeException(nameof(key), key, null);
             }
             //TODO: Действительно ли должен вернуться null или правильнее будет кинуть исключение?
-            return employeeBase;
+            if (employeeBase == null)
+            {
+                throw new ArgumentException("Ошибка ввода. Введите корректные значения");
+            }
+            else
+            {
+                return employeeBase;
+            }
         }
     }
 }
