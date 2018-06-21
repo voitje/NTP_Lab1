@@ -13,20 +13,18 @@ namespace Salary
         public static EmployeeBase GetSalary(TypeSalary key,
             params uint[] value)
         {
-            EmployeeBase employeeBase = null;
-
             switch (key)
             {
                 case TypeSalary.Hourly:
                     if (value.Length == 2)
                     {
-                        employeeBase = new EmployeeHourly(value[0], value[1]);
+                         return new EmployeeHourly(value[0], value[1]);
                     }
                     break;
                 case TypeSalary.Rate:
                     if (value.Length == 3)
                     {
-                        employeeBase = new EmployeeRate(value[0], value[1], value[2]);
+                        return new EmployeeRate(value[0], value[1], value[2]);
                     }
                     break;
                 default:
@@ -34,14 +32,7 @@ namespace Salary
             }
             //TODO: Действительно ли должен вернуться null или правильнее будет кинуть исключение?
             //TODO: Думайте ещё... Нужен ли тут employeeBase?
-            if (employeeBase == null)
-            {
-                throw new ArgumentException("Ошибка ввода. Введите корректные значения");
-            }
-            else
-            {
-                return employeeBase;
-            }
+            throw new ArgumentException("Ошибка ввода. Введите корректные значения");
         }
     }
 }
