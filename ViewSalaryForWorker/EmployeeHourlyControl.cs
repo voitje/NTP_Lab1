@@ -45,8 +45,8 @@ namespace ViewSalaryForWorker
         /// </summary>
         private uint WorkTime
         {
-            get => uint.Parse(textBox1.Text);
-            set => textBox1.Text = value.ToString();
+            get => uint.Parse(WorkTimeTextBox.Text);
+            set => WorkTimeTextBox.Text = value.ToString();
         }
 
         /// <summary>
@@ -54,8 +54,8 @@ namespace ViewSalaryForWorker
         /// </summary>
         private uint CostPerHour
         {
-            get => uint.Parse(textBox2.Text);
-            set => textBox2.Text = value.ToString();
+            get => uint.Parse(CostPerHourTextBox.Text);
+            set => CostPerHourTextBox.Text = value.ToString();
         }
 
         /// <summary>
@@ -65,9 +65,10 @@ namespace ViewSalaryForWorker
         {
             set
             {
-                textBox1.ReadOnly = value;
-                textBox2.ReadOnly = value;
+                WorkTimeTextBox.ReadOnly = value;
+                CostPerHourTextBox.ReadOnly = value;
             }
         }
+
     }
 }

@@ -47,8 +47,8 @@ namespace ViewSalaryForWorker
         /// </summary>
         private uint WorkTime
         {
-            get => uint.Parse(textBox1.Text);
-            set => textBox1.Text = value.ToString();
+            get => uint.Parse(WorkTimeTextBox.Text);
+            set => WorkTimeTextBox.Text = value.ToString();
         }
 
         /// <summary>
@@ -56,8 +56,8 @@ namespace ViewSalaryForWorker
         /// </summary>
         private uint Salary
         {
-            get => uint.Parse(textBox2.Text);
-            set => textBox2.Text = value.ToString();
+            get => uint.Parse(SalaryTextBox.Text);
+            set => SalaryTextBox.Text = value.ToString();
         }
 
         /// <summary>
@@ -65,8 +65,8 @@ namespace ViewSalaryForWorker
         /// </summary>
         private uint Rate
         {
-            get => uint.Parse(textBox3.Text);
-            set => textBox3.Text = value.ToString();
+            get => uint.Parse(RateTextBox.Text);
+            set => RateTextBox.Text = value.ToString();
         }
 
         /// <summary>
@@ -76,9 +76,9 @@ namespace ViewSalaryForWorker
         {
             set
             {
-                textBox1.ReadOnly = value;
-                textBox2.ReadOnly = value;
-                textBox3.ReadOnly = value;
+                WorkTimeTextBox.ReadOnly = value;
+                SalaryTextBox.ReadOnly = value;
+                RateTextBox.ReadOnly = value;
             }
         }
     }

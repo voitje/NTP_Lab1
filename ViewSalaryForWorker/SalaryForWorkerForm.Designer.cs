@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.DataGridGroupBox = new System.Windows.Forms.GroupBox();
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Salary = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,21 +46,25 @@
             this.ButtomAddRandomObject = new System.Windows.Forms.Button();
             this.employeeHourlyControl = new ViewSalaryForWorker.EmployeeHourlyControl();
             this.employeeRateControl = new ViewSalaryForWorker.EmployeeRateControl();
-            this.groupBox1.SuspendLayout();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.DataGridGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             this.menuStrip.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // DataGridGroupBox
             // 
-            this.groupBox1.Controls.Add(this.dataGridView);
-            this.groupBox1.Location = new System.Drawing.Point(16, 52);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(534, 259);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Таблица зарплат";
+            this.DataGridGroupBox.Controls.Add(this.dataGridView1);
+            this.DataGridGroupBox.Location = new System.Drawing.Point(22, 48);
+            this.DataGridGroupBox.Name = "DataGridGroupBox";
+            this.DataGridGroupBox.Size = new System.Drawing.Size(522, 263);
+            this.DataGridGroupBox.TabIndex = 0;
+            this.DataGridGroupBox.TabStop = false;
+            this.DataGridGroupBox.Text = "Таблица зарплат";
             // 
             // dataGridView
             // 
@@ -186,6 +190,25 @@
             this.employeeRateControl.Size = new System.Drawing.Size(451, 154);
             this.employeeRateControl.TabIndex = 1;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.dataGridView);
+            this.groupBox1.Location = new System.Drawing.Point(16, 52);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(534, 259);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Таблица зарплат";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(7, 22);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(240, 150);
+            this.dataGridView1.TabIndex = 0;
+            // 
             // SalaryForWorkerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -196,17 +219,19 @@
             this.Controls.Add(this.ButtomAddRandomObject);
             this.Controls.Add(this.ButtonRemoveObject);
             this.Controls.Add(this.ButtonAddObjectNewForm);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.DataGridGroupBox);
             this.Controls.Add(this.menuStrip);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MainMenuStrip = this.menuStrip;
             this.Name = "SalaryForWorkerForm";
             this.Text = "Расчет зарплаты";
-            this.groupBox1.ResumeLayout(false);
+            this.DataGridGroupBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -214,7 +239,7 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox DataGridGroupBox;
         private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.Button ButtonAddObjectNewForm;
         private System.Windows.Forms.Button ButtonRemoveObject;
@@ -231,6 +256,8 @@
         private System.Windows.Forms.Button ButtomAddRandomObject;
         private EmployeeHourlyControl employeeHourlyControl;
         private EmployeeRateControl employeeRateControl;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
 

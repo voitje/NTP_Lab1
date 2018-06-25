@@ -30,8 +30,6 @@ namespace Salary
                 default:
                     throw new ArgumentOutOfRangeException(nameof(key), key, null);
             }
-            //TODO: Действительно ли должен вернуться null или правильнее будет кинуть исключение?
-            //TODO: Думайте ещё... Нужен ли тут employeeBase?
             throw new ArgumentException("Ошибка ввода. Введите корректные значения");
         }
     }

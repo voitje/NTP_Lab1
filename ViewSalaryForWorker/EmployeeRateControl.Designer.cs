@@ -28,100 +28,100 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.groupBox1.SuspendLayout();
+            this.SalaryRateGroupBox = new System.Windows.Forms.GroupBox();
+            this.RateTextBox = new System.Windows.Forms.TextBox();
+            this.SalaryTextBox = new System.Windows.Forms.TextBox();
+            this.WorkTimeTextBox = new System.Windows.Forms.TextBox();
+            this.RateLabel = new System.Windows.Forms.Label();
+            this.SalaryLabel = new System.Windows.Forms.Label();
+            this.WorkTimeLabel = new System.Windows.Forms.Label();
+            this.SalaryRateGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // SalaryRateGroupBox
             // 
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(3, 3);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(445, 194);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Зарплаты по ставке и окладу";
+            this.SalaryRateGroupBox.Controls.Add(this.RateTextBox);
+            this.SalaryRateGroupBox.Controls.Add(this.SalaryTextBox);
+            this.SalaryRateGroupBox.Controls.Add(this.WorkTimeTextBox);
+            this.SalaryRateGroupBox.Controls.Add(this.RateLabel);
+            this.SalaryRateGroupBox.Controls.Add(this.SalaryLabel);
+            this.SalaryRateGroupBox.Controls.Add(this.WorkTimeLabel);
+            this.SalaryRateGroupBox.Location = new System.Drawing.Point(3, 3);
+            this.SalaryRateGroupBox.Name = "SalaryRateGroupBox";
+            this.SalaryRateGroupBox.Size = new System.Drawing.Size(445, 194);
+            this.SalaryRateGroupBox.TabIndex = 0;
+            this.SalaryRateGroupBox.TabStop = false;
+            this.SalaryRateGroupBox.Text = "Зарплаты по ставке и окладу";
             // 
-            // textBox3
+            // RateTextBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(123, 100);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(150, 22);
-            this.textBox3.TabIndex = 5;
+            this.RateTextBox.Location = new System.Drawing.Point(123, 100);
+            this.RateTextBox.Name = "RateTextBox";
+            this.RateTextBox.Size = new System.Drawing.Size(150, 22);
+            this.RateTextBox.TabIndex = 5;
             // 
-            // textBox2
+            // SalaryTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(123, 72);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(150, 22);
-            this.textBox2.TabIndex = 4;
+            this.SalaryTextBox.Location = new System.Drawing.Point(123, 72);
+            this.SalaryTextBox.Name = "SalaryTextBox";
+            this.SalaryTextBox.Size = new System.Drawing.Size(150, 22);
+            this.SalaryTextBox.TabIndex = 4;
             // 
-            // textBox1
+            // WorkTimeTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(123, 42);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(150, 22);
-            this.textBox1.TabIndex = 3;
+            this.WorkTimeTextBox.Location = new System.Drawing.Point(123, 42);
+            this.WorkTimeTextBox.Name = "WorkTimeTextBox";
+            this.WorkTimeTextBox.Size = new System.Drawing.Size(150, 22);
+            this.WorkTimeTextBox.TabIndex = 3;
             // 
-            // label3
+            // RateLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 103);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(104, 17);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Норма работы";
+            this.RateLabel.AutoSize = true;
+            this.RateLabel.Location = new System.Drawing.Point(13, 103);
+            this.RateLabel.Name = "RateLabel";
+            this.RateLabel.Size = new System.Drawing.Size(104, 17);
+            this.RateLabel.TabIndex = 2;
+            this.RateLabel.Text = "Норма работы";
             // 
-            // label2
+            // SalaryLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(67, 72);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(50, 17);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Оклад";
+            this.SalaryLabel.AutoSize = true;
+            this.SalaryLabel.Location = new System.Drawing.Point(67, 72);
+            this.SalaryLabel.Name = "SalaryLabel";
+            this.SalaryLabel.Size = new System.Drawing.Size(50, 17);
+            this.SalaryLabel.TabIndex = 1;
+            this.SalaryLabel.Text = "Оклад";
             // 
-            // label1
+            // WorkTimeLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 45);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(103, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Время работы";
+            this.WorkTimeLabel.AutoSize = true;
+            this.WorkTimeLabel.Location = new System.Drawing.Point(14, 45);
+            this.WorkTimeLabel.Name = "WorkTimeLabel";
+            this.WorkTimeLabel.Size = new System.Drawing.Size(103, 17);
+            this.WorkTimeLabel.TabIndex = 0;
+            this.WorkTimeLabel.Text = "Время работы";
             // 
             // EmployeeRateControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.SalaryRateGroupBox);
             this.Name = "EmployeeRateControl";
             this.Size = new System.Drawing.Size(451, 211);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.SalaryRateGroupBox.ResumeLayout(false);
+            this.SalaryRateGroupBox.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox SalaryRateGroupBox;
+        private System.Windows.Forms.TextBox RateTextBox;
+        private System.Windows.Forms.TextBox SalaryTextBox;
+        private System.Windows.Forms.TextBox WorkTimeTextBox;
+        private System.Windows.Forms.Label RateLabel;
+        private System.Windows.Forms.Label SalaryLabel;
+        private System.Windows.Forms.Label WorkTimeLabel;
     }
 }
