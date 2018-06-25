@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Security.Authentication.ExtendedProtection.Configuration;
 using NUnit.Framework;
-using NUnit.Framework.Internal;
 using Salary;
 
 namespace UnitTestProject

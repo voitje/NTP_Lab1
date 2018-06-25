@@ -28,30 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SalaryRateGroupBox = new System.Windows.Forms.GroupBox();
+            this.EmployeeHourlyGroupBox = new System.Windows.Forms.GroupBox();
             this.RateTextBox = new System.Windows.Forms.TextBox();
             this.SalaryTextBox = new System.Windows.Forms.TextBox();
             this.WorkTimeTextBox = new System.Windows.Forms.TextBox();
             this.RateLabel = new System.Windows.Forms.Label();
             this.SalaryLabel = new System.Windows.Forms.Label();
             this.WorkTimeLabel = new System.Windows.Forms.Label();
-            this.SalaryRateGroupBox.SuspendLayout();
+            this.EmployeeHourlyGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
-            // SalaryRateGroupBox
+            // EmployeeHourlyGroupBox
             // 
-            this.SalaryRateGroupBox.Controls.Add(this.RateTextBox);
-            this.SalaryRateGroupBox.Controls.Add(this.SalaryTextBox);
-            this.SalaryRateGroupBox.Controls.Add(this.WorkTimeTextBox);
-            this.SalaryRateGroupBox.Controls.Add(this.RateLabel);
-            this.SalaryRateGroupBox.Controls.Add(this.SalaryLabel);
-            this.SalaryRateGroupBox.Controls.Add(this.WorkTimeLabel);
-            this.SalaryRateGroupBox.Location = new System.Drawing.Point(3, 3);
-            this.SalaryRateGroupBox.Name = "SalaryRateGroupBox";
-            this.SalaryRateGroupBox.Size = new System.Drawing.Size(445, 194);
-            this.SalaryRateGroupBox.TabIndex = 0;
-            this.SalaryRateGroupBox.TabStop = false;
-            this.SalaryRateGroupBox.Text = "Зарплаты по ставке и окладу";
+            this.EmployeeHourlyGroupBox.Controls.Add(this.RateTextBox);
+            this.EmployeeHourlyGroupBox.Controls.Add(this.SalaryTextBox);
+            this.EmployeeHourlyGroupBox.Controls.Add(this.WorkTimeTextBox);
+            this.EmployeeHourlyGroupBox.Controls.Add(this.RateLabel);
+            this.EmployeeHourlyGroupBox.Controls.Add(this.SalaryLabel);
+            this.EmployeeHourlyGroupBox.Controls.Add(this.WorkTimeLabel);
+            this.EmployeeHourlyGroupBox.Location = new System.Drawing.Point(3, 3);
+            this.EmployeeHourlyGroupBox.Name = "EmployeeHourlyGroupBox";
+            this.EmployeeHourlyGroupBox.Size = new System.Drawing.Size(445, 194);
+            this.EmployeeHourlyGroupBox.TabIndex = 0;
+            this.EmployeeHourlyGroupBox.TabStop = false;
+            this.EmployeeHourlyGroupBox.Text = "Зарплаты по ставке и окладу";
             // 
             // RateTextBox
             // 
@@ -105,18 +105,18 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.SalaryRateGroupBox);
+            this.Controls.Add(this.EmployeeHourlyGroupBox);
             this.Name = "EmployeeRateControl";
             this.Size = new System.Drawing.Size(451, 211);
-            this.SalaryRateGroupBox.ResumeLayout(false);
-            this.SalaryRateGroupBox.PerformLayout();
+            this.EmployeeHourlyGroupBox.ResumeLayout(false);
+            this.EmployeeHourlyGroupBox.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox SalaryRateGroupBox;
+        private System.Windows.Forms.GroupBox EmployeeHourlyGroupBox;
         private System.Windows.Forms.TextBox RateTextBox;
         private System.Windows.Forms.TextBox SalaryTextBox;
         private System.Windows.Forms.TextBox WorkTimeTextBox;

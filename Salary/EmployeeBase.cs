@@ -58,7 +58,7 @@ namespace Salary
 
         protected void CheckingData(int value, int border)
         {
-            while ((int)value > border || (int)value <= 0)
+            while (value > border || value <= 0)
             {
                 throw new ArgumentException($"\nПараметры должны быть больше 0 и не больше {border}" +
                                             $"\n Введите корректное значение");

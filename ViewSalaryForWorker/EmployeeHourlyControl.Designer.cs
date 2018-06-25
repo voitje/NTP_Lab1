@@ -28,26 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SalaryHourlyGroupBox = new System.Windows.Forms.GroupBox();
+            this.EmployeeRateGroupBox = new System.Windows.Forms.GroupBox();
             this.CostPerHourTextBox = new System.Windows.Forms.TextBox();
             this.WorkTimeTextBox = new System.Windows.Forms.TextBox();
             this.CostPerHourLabel = new System.Windows.Forms.Label();
             this.WorkTimeLabel = new System.Windows.Forms.Label();
-            this.SalaryHourlyGroupBox.SuspendLayout();
+            this.EmployeeRateGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
-            // SalaryHourlyGroupBox
+            // EmployeeRateGroupBox
             // 
-            this.SalaryHourlyGroupBox.Controls.Add(this.CostPerHourTextBox);
-            this.SalaryHourlyGroupBox.Controls.Add(this.WorkTimeTextBox);
-            this.SalaryHourlyGroupBox.Controls.Add(this.CostPerHourLabel);
-            this.SalaryHourlyGroupBox.Controls.Add(this.WorkTimeLabel);
-            this.SalaryHourlyGroupBox.Location = new System.Drawing.Point(4, 3);
-            this.SalaryHourlyGroupBox.Name = "SalaryHourlyGroupBox";
-            this.SalaryHourlyGroupBox.Size = new System.Drawing.Size(427, 206);
-            this.SalaryHourlyGroupBox.TabIndex = 0;
-            this.SalaryHourlyGroupBox.TabStop = false;
-            this.SalaryHourlyGroupBox.Text = "Зарплата по часу";
+            this.EmployeeRateGroupBox.Controls.Add(this.CostPerHourTextBox);
+            this.EmployeeRateGroupBox.Controls.Add(this.WorkTimeTextBox);
+            this.EmployeeRateGroupBox.Controls.Add(this.CostPerHourLabel);
+            this.EmployeeRateGroupBox.Controls.Add(this.WorkTimeLabel);
+            this.EmployeeRateGroupBox.Location = new System.Drawing.Point(4, 3);
+            this.EmployeeRateGroupBox.Name = "EmployeeRateGroupBox";
+            this.EmployeeRateGroupBox.Size = new System.Drawing.Size(427, 206);
+            this.EmployeeRateGroupBox.TabIndex = 0;
+            this.EmployeeRateGroupBox.TabStop = false;
+            this.EmployeeRateGroupBox.Text = "Зарплата по часу";
             // 
             // CostPerHourTextBox
             // 
@@ -85,18 +85,18 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.SalaryHourlyGroupBox);
+            this.Controls.Add(this.EmployeeRateGroupBox);
             this.Name = "EmployeeHourlyControl";
             this.Size = new System.Drawing.Size(434, 231);
-            this.SalaryHourlyGroupBox.ResumeLayout(false);
-            this.SalaryHourlyGroupBox.PerformLayout();
+            this.EmployeeRateGroupBox.ResumeLayout(false);
+            this.EmployeeRateGroupBox.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox SalaryHourlyGroupBox;
+        private System.Windows.Forms.GroupBox EmployeeRateGroupBox;
         private System.Windows.Forms.TextBox CostPerHourTextBox;
         private System.Windows.Forms.TextBox WorkTimeTextBox;
         private System.Windows.Forms.Label CostPerHourLabel;
